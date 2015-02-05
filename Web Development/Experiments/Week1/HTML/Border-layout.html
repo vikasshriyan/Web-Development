@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Border Layout</title>
+    <link rel="stylesheet" href="/Experiments/CSS/BorderLayout-CSS.css" />
+</head>
+<body>
+    <div id="container">
+    <header id="north">Header</header>
+    <nav id="west">Navigation</nav>
+    <main id="center">Main Content</main>
+    <aside id="east">Aside</aside>
+    <footer id="south">Footer</footer>
+    </div>
+    <hr/>
+    <h3>About the Experiment</h3>
+    <p>
+       I've implemented a html page with a border layout using different tags such as the header, nav, main, aside and footer.  I've used a css file to make these tags distinct in look:
+       Following is the code in CSS: <br/>
+        <code>
+            body {
+            margin:0px;
+            padding:0px;
+            }
+            #north ,#south{
+            height:100px;
+            width:800px;
+            background-color:red;
+            clear:both;
+            }
+            #west,#center,#east {
+            float:left;
+            }
+            #west, #east{
+            height:400px;
+            width:100px;
+            background-color:blue;
+            }
+            #center{
+            height:400px;
+            width:600px;
+            }
+            #container{
+            width:800px;
+            margin:auto;
+            }
+            .row{
+            clear:both;
+            width:780px;
+            }
+            .col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,
+            .col-9,.col-10,.col-11,.col-12{
+            float:left;
+            }
+            .col-1{
+            width:65px;
+            }
+            .col-2{
+            width:130px;
+            }
+            .col-3{
+            width:260px;
+            }
+        </code>
+     </p>
+    <hr />
+    <h3> Source Code</h3>
+    <div>
+        <a href="../../../fileview/Default.aspx?~/Experiments/Week1/HTML/Border-layout.html">View Source</a>
+    </div>
+    <hr />
+    <h3>References</h3>
+    <a href="https://www.youtube.com/watch?v=0qtDzdavqdQ">Youtube Video</a>
+</body>
+</html>

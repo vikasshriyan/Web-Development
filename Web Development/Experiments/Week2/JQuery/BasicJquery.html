@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Basic JQuery Implementation</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <!-- Modal Javascript file -->
+    <script type="text/javascript" src="BasicJQuery.js"></script>
+    <link rel="stylesheet" href="Jqueryhelper.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- Validation javascript file -->
+    <script type="text/javascript" src="validation.js"></script> 
+        </head>
+        <body>
+            <div class="container">
+                <h1>Basic Jquery Implementation</h1>
+                <hr/>
+                <h2>Modal Window</h2>
+                <button type="button" class="btn btn-primary btn-lg active openModal" value="Open Modal">Modal</button>
+
+                    <div class="modal">
+                         <div class="close">
+                            <a href="#">
+                                 <canvas id="close" class="close-btn"></canvas>
+                            </a>
+                         </div>
+                    </div>
+                <hr/>
+                <div class="container">
+                    <h2>Username and Password validation</h2>
+                    <form method="POST" action="#" onsubmit="return checkForm(this);">
+                        <p>Username: <input type="text" name="username"></p>
+                        <p>Password: <input type="password" name="pwd1"></p>
+                        <p>Confirm Password: <input type="password" name="pwd2"></p>
+                        <p><input type="submit" class="btn btn-primary btn-lg active"></p>
+                    </form>
+                </div>
+    </div>
+                    <br />
+                    <br />
+                    <hr />
+                    <div class="container">
+                        <h3>About the Experiment</h3>
+                        <h4>Modal</h4>
+                        <p>
+                            Modal is a java script effect to overlay any contents of the webpage. The primary benefit of modal boxes is that they avoid the need to use of conventional window pop-ups. When the "Open Modal" button is clicked, the java script fades out the modal window and is displayed to the end user. When the close button at the top of modal window is clicked, the window fades in. 
+                            Following the javascript code which I used :
+                        </p>
+
+    <div>
+        <code>
+            $(document).ready(function () {
+            initModal();
+            // Modal window close button
+            var ctx = document.getElementById('close').getContext('2d');
+            ctx.beginPath();
+            ctx.arc(12, 12, 10, 0, 2 * Math.PI, true);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+            ctx.moveTo(8, 8);
+            ctx.lineTo(16, 16);
+            ctx.moveTo(16, 8);
+            ctx.lineTo(8, 16);
+            ctx.stroke();
+            })
+            // Javascript for modal window
+            function initModal() {
+            $('.openModal').click(function () {
+            $('.modal').fadeIn(200);
+            $('body').addClass('overlay');
+            });
+            $('.close a').click(function () {
+            $('.modal').fadeOut(200);
+            $('body').removeClass('overlay')
+            });
+            }
+        </code>
+        <hr/>
+        </div>
+                        <h4>Username and Password Validation</h4>
+        <p>
+            I've implemented a simple username and password validation. If the all the fields are left blank, a pop-up will display an error message.
+            The username should not be left blank. The password field can contain only numbers, letters and underscores. If the user inputs a value other than this, a error message is shown.
+            The confirm password field checks if both the password field and confirm password field are equal.
+            Following the javascript code which I used :
+        </p>
+
+        <div>
+            <code>
+                // Username and Password Validation
+                function checkPassword(str) {
+                var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+                return re.test(str);
+                }
+
+                function checkForm(form) {
+                if (form.username.value == "") {
+                alert("Error: Username cannot be blank!");
+                form.username.focus();
+                return false;
+                }
+                re = /^\w+$/;
+                if (!re.test(form.username.value)) {
+                alert("Error: Username must contain only letters, numbers and underscores!");
+                form.username.focus();
+                return false;
+                }
+                if (form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+                if (!checkPassword(form.pwd1.value)) {
+                alert("The password you have entered is not valid!");
+                form.pwd1.focus();
+                return false;
+                }
+                } else {
+                alert("Error: Please check that you've entered and confirmed your password!");
+                form.pwd1.focus();
+                return false;
+                }
+                return true;
+                }
+            </code>
+        </div>
+    <hr />
+    <h3>View Source</h3>
+    <div>
+        <a href="../../../fileview/Default.aspx?~/Experiments/Week2/JQuery/BasicJquery.html">Source Code</a>
+    </div>
+    <hr />
+    <h3>References</h3>
+    <a href="http://www.the-art-of-web.com/javascript/validate-password/">Art Of Web</a><br/>
+    <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+</div>
+</body>
+</html>

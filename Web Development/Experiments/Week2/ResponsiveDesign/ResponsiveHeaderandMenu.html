@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ResponsiveMenu</title>
+    <link rel="stylesheet" href="ResponsiveDesign2.css"/>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Responsive Menu and Header</h2>
+
+            <div class="chelsea">
+                <img src="chelsea.img.png" style="width:100px;height:100px;border:1px;float:right" />
+                <h2 style="color:white;">Chelsea FC</h2>
+
+            </div>
+        </header>
+        <div class="menu">
+            <nav>
+                <a href="#">Home</a> |
+                <a href="#">Videos</a> |
+                <a href="#">Images</a> |
+                <a href="#">Latest News</a> |
+                <a href="#">Fixtures</a> |
+                <label for="search">
+                    <img src="search.png" style="width:20px;height:20px;border:0">
+                </label>
+                <input id="search" />
+             </nav>
+            <a href="#menu" id="menu-link" style="color:white;text-align:left">Menu</a>
+        </div>
+        <main>
+            <div class="text">
+                <p>
+                    Mourinho was so disappointed, ashamed, etc at the efforts of his Chelsea charges in the 4-2 home loss to Bradford City that he gave them the silent treatment, preferring menacing silence over deafening screams.  Meted out appropriately, both methods can be effective, and presumably the manager knows to push the right buttons at the right time.
+                </p>
+
+                <p>
+                    "[After the game] was not the moment to speak with them."
+
+                    [...]
+                </p>
+                <p>
+                    "At halftime we spoke about the danger of the situation. We spoke about the way they play.  We repeated at halftime what we spoke about in the preparation.  We prepared for the game the same way we prepare for a Premier League game.  We respected them, or at least I respected them, in the way we prepared the game."
+
+                </p>
+                <p>
+                    "But probably at halftime the players thought 'in the second half we're going to score, not them'. When they scored the (goal to make it) 2-2, after that the game became crazy."
+                </p>
+                <p>
+                    Is that a suggestion of the dreaded c-word?  Surely players who rarely play shouldn't be complacent even when they're 2-0 up against a League One side.
+                </p>
+                <p>
+                    "I don't make many changes. I try to keep stability in the team. Maybe now you can understand a bit better why.  But I don't want to speak too much about it. This is our squad, I trust them and let's move on."
+
+                    So despite all the transfer rumors that continue to swirl around Mohamed Salah, André Schürrle, Juan Cuadrado, and Douglas Costa, Mourinho has once again reiterated his desire to keep the squad as is.
+                </p>
+                <p>
+                    "I trust my squad. And it's not because of this disappointment and this really bad performance that I'm going to change.  I'm happy to go (until the end of the season with the same squad)."
+                </p>
+                <p>
+                    "This is Chelsea, always thinking and being proud of thinking about numbers and Financial Fair Play and so on.  We cannot now go to the market and spend money. So I'm completely with the club. I share this idea.  I don't think we are going to the market."
+                </p>
+                <p>
+                    Granted, what Mourinho thinks or what Mourinho says he thinks or what Mourinho wants you to think he thinks may not be, regardless of whether by accident or by design, what ends up happening in the real world.  But every once in a while, he does speak the truth, so that's something to keep in mind as we enter the final week of the January transfer window.
+                </p>
+            </div>
+        </main>
+        <a name="menu"></a>
+        <nav id="small-menu">
+            <a href="#">Home</a> <br/>
+            <a href="#">Videos</a> <br />
+            <a href="#">Images</a> <br />
+            <a href="#">Latest News</a> <br />
+            <a href="#">Fixtures</a> <br />
+            <label for="search">
+                <img src="search.png" style="width:20px;height:20px;border:0">
+            </label>
+            <input id="search" />
+        </nav>
+    </div>
+    <br />
+    <br />
+    <hr />
+    <h3>About the Experiment</h3>
+    <p>
+        I've implemented a responsive design page which includes a responsive menu suited for different devices and a responsive header suited to look on a phone. I've implemented the above by using the @media which was taught in class. I've also used the container element to center the whole content which is responsive as well. Following is the code snippet which I used in my CSS file :
+    </p>
+    <div class="text">
+        @media screen and (min-width:400px)
+        {<br/>
+        header<br />
+        {   color:white;
+        background-color:#0070FF;
+        margin-top:-8px;
+        position:fixed;
+        width:62.5%
+        }<br />
+        div.menu<br />
+        {
+        padding-top:200px;
+        }<br />
+
+        }<br />
+        .chelsea<br />
+        {
+        list-style:none;
+        margin:0 auto;
+        padding:0;
+        width:100%;
+        float:left;
+        background:#0070FF;
+        overflow:hidden;
+        text-decoration-color:white;
+        }<br />
+        div.menu <br />{
+        list-style:none;
+        margin:0 auto;
+        padding:0;
+        width:100%;
+        text-align:center;
+        background:blue;
+        overflow:hidden;
+        text-decoration-color:white;
+        }<br />
+        div.menu ul<br />{
+        font-family: Verdana;
+        font-size:14px;
+        margin:0 3px;
+        width: 100%;
+        padding:0;
+        }<br />
+        div.menu a<br />{
+
+
+        color:white;
+
+        display:inline-block;
+
+
+        }
+    </div>
+    <hr />
+    <h3>View Source</h3>
+    <div>
+        <a href="../../../fileview/Default.aspx?~/Experiments/Week2/ResponsiveDesign/ResponsiveHeaderandMenu.html">View Source</a>
+    </div>
+    <hr />
+    <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=0qtDzdavqdQ">Youtube Video</a>
+        <a href="http://www.w3schools.com/">W3Schools</a>
+</body>
+</html>

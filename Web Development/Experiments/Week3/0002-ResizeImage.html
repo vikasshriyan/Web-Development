@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="0002-ResizeImage.js"> </script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    
+   
+   
+</head>
+
+<body>
+    <div class="container">
+        <h2>Jquery Implementation</h2>
+        <hr/>
+        <h4>Description</h4>
+        <p>The purpose of this experiment is to write a simple javascript that would increase/decrease the size of an image as per the zoom percentage selected by the user.</p><hr />
+        <h4>Demonstration</h4>
+        <input id="zoomController" type="range" min="0" style="width:100px;" max="100" value="0" step="1" onchange="sizechange()">
+        <span id="currentSize">0%</span>
+        
+        <br/>
+        <p>Drag the counter towards right or left to increase or decrease the size of the image respectively.</p>
+        
+            <img src="../Week2/ResponsiveDesign/chelsea.img.png" id="image" />
+        
+        <hr/>
+        
+            <h3>About the Experiment</h3>
+            <h4>Resizing Image</h4>
+            <p>
+              Initially, the size of the image is <code>300px</code> and it's id is <code>image</code>. We have a HTML range controller with <code>id="zoomController"</code> which is used to get the percentage zoom from the user.<br/>
+              The zoomSelector can shift between 0% to 100% with 1% increase on each step. The onchange event of the zoomController is set to call a javascript function <code>sizechange()</code>.          
+            </p>
+
+            <div>
+                <code>
+                    function sizechange() 
+                    {<br/>
+
+                    var img_height = 300; //Original height of the image in pixels <br />
+
+
+                    var step = document.getElementById('zoomSelector').valueAsNumber; //Get the current zoom value from the user by using document.getElementId()<br />
+
+                    var heightChange = img_height * (step / 100); //Calculating the percentage increase and decrease<br />
+
+
+                    img_height = img_height + heightChange; //Setting the new value of the image<br />
+                    document.getElementById('image').height = img_height;<br />
+
+
+                    document.getElementById('currentSize').innerText = step + '%'; //Display the current zoom percentage to the user.<br />
+                    }
+                </code>
+                <hr />
+            </div>
+            <h3>View Source</h3>
+            <div>
+                <a href="../../../fileview/Default.aspx?~/Experiments/Week3/0002-ResizeImage.html">Source Code</a>
+            </div>
+            <hr />
+            <h3>References</h3>
+        <a href="http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_document_getelementbyid">W3 Schools</a><br />
+            <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+        </div>
+
+</body>
+</html>

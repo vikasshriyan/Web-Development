@@ -1,0 +1,144 @@
+﻿body{
+    color:grey;
+}
+#menu-link, #small-menu
+    {
+         display:none;
+
+    }
+p,.text 
+{
+    clear:both;
+}
+.chelsea
+{
+    list-style:none; 
+    margin:0 auto; 
+    padding:0; 
+    width:100%;
+    float:left;
+    background:#0070FF;
+    overflow:hidden;
+    text-decoration-color:white;
+}
+div.menu { 
+    list-style:none; 
+    margin:0 auto; 
+    padding:0; 
+    width:100%;
+    text-align:center;
+    background:blue;
+    overflow:hidden;
+    text-decoration-color:white;
+} 
+ div.menu ul{ 
+    font-family: Verdana; 
+    font-size:14px;
+    margin:0 3px;
+    width: 100%; 
+    padding:0;
+}
+div.menu a{ 
+   
+
+    color:white; 
+ 
+display:inline-block; 
+
+   
+   }
+
+
+
+@media screen and (min-width:400px)
+{
+    .field-label,.field-label
+    {
+        float:left;
+    }
+}
+@media screen and (max-width:500px)
+ {
+  
+    .container
+       {
+        width:300px;
+        margin:auto;
+       }
+    .field-label,.field-label
+    {
+        float:none;
+    }
+     body .menu nav
+    {
+        display:none;
+       
+    }
+     body #menu-link 
+    {
+         display:inline;
+         text-align:left;
+
+    }
+     #small-menu
+     {
+         display:block;
+     }
+     header
+     {   color:white;
+         background-color:#0070FF;
+         margin-top:-8px;
+         position:fixed;
+         width:inherit;
+     }
+     div.menu
+     {
+          padding-top:200px;
+     }
+     
+ }
+@media screen and (min-width:500px) and (max-width:700px)
+ {
+
+    .container
+       {
+        width:400px;
+        margin:auto;
+       }
+    .field-label,.field-label
+    {
+        float:none;
+    }
+     body .menu nav
+    {
+        display:none;
+    }
+     body #menu-link 
+    {
+         display:inline;
+          text-align:left;
+
+    }
+     #small-menu
+     {
+         display:block;
+     }
+ }
+@media screen and (min-width:700px)
+ {
+ 
+    .container
+       {
+        width:600px;
+        margin:auto;
+       }
+  
+    
+}
+.text
+{
+    border-style:solid;
+border-width:1px;
+border-color:grey;
+
+}

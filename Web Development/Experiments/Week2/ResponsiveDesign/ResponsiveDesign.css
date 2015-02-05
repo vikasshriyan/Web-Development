@@ -1,0 +1,58 @@
+﻿body{
+    color:grey;
+}
+
+p,.text 
+{
+    clear:both;
+}
+@media screen and (min-width:400px)
+{
+    .field-label,.field-label
+    {
+        float:left;
+    }
+}
+@media screen and (max-width:500px)
+ {
+    body{background-color:blue;}
+    .container
+       {
+        width:300px;
+        margin:auto;
+       }
+    .field-label,.field-label
+    {
+        float:none;
+    }
+ }
+@media screen and (min-width:500px) and (max-width:700px)
+ {
+    body{background-color:green;}
+    .container
+       {
+        width:400px;
+        margin:auto;
+       }
+    .field-label,.field-label
+    {
+        float:none;
+    }
+ }
+@media screen and (min-width:700px)
+ {
+    body{background-color:yellow;}
+    .container
+       {
+        width:600px;
+        margin:auto;
+       }
+    
+}
+.text
+{
+    border-style:solid;
+border-width:1px;
+border-color:grey;
+
+}

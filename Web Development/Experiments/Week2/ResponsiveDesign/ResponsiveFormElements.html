@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Responsive Form</title>
+    <link rel="stylesheet" href="ResponsiveDesign.css" />
+</head>
+<body>
+    <div class="container">
+        <h3>Responsive Form Elements</h3>
+        <div>
+            <label class="field-label" for="username">Username :</label>
+            <div class="field">
+                <input id="username" />
+            </div>
+        </div>
+        <div>
+            <label class="field-label" for="password">Password :</label>
+            <div class="field">
+                <input id="password" /><br /><br />
+            </div>
+        </div>
+        <div>
+            <input type="button" value="Login" />
+            <input type="button" value="Cancel" />
+        </div>
+        <br />
+        <hr />
+        <div class="text">
+            <p>
+                Mourinho was so disappointed, ashamed, etc at the efforts of his Chelsea charges in the 4-2 home loss to Bradford City that he gave them the silent treatment, preferring menacing silence over deafening screams.  Meted out appropriately, both methods can be effective, and presumably the manager knows to push the right buttons at the right time.
+            </p>
+
+            <p>
+                "[After the game] was not the moment to speak with them."
+
+                [...]
+            </p>
+            <p>
+                "At halftime we spoke about the danger of the situation. We spoke about the way they play.  We repeated at halftime what we spoke about in the preparation.  We prepared for the game the same way we prepare for a Premier League game.  We respected them, or at least I respected them, in the way we prepared the game."
+
+            </p>
+            <p>
+                "But probably at halftime the players thought 'in the second half we're going to score, not them'. When they scored the (goal to make it) 2-2, after that the game became crazy."
+            </p>
+            <p>
+                Is that a suggestion of the dreaded c-word?  Surely players who rarely play shouldn't be complacent even when they're 2-0 up against a League One side.
+            </p>
+            <p>
+                "I don't make many changes. I try to keep stability in the team. Maybe now you can understand a bit better why.  But I don't want to speak too much about it. This is our squad, I trust them and let's move on."
+
+                So despite all the transfer rumors that continue to swirl around Mohamed Salah, André Schürrle, Juan Cuadrado, and Douglas Costa, Mourinho has once again reiterated his desire to keep the squad as is.
+            </p>
+            <p>
+                "I trust my squad. And it's not because of this disappointment and this really bad performance that I'm going to change.  I'm happy to go (until the end of the season with the same squad)."
+            </p>
+            <p>
+                "This is Chelsea, always thinking and being proud of thinking about numbers and Financial Fair Play and so on.  We cannot now go to the market and spend money. So I'm completely with the club. I share this idea.  I don't think we are going to the market."
+            </p>
+            <p>
+                Granted, what Mourinho thinks or what Mourinho says he thinks or what Mourinho wants you to think he thinks may not be, regardless of whether by accident or by design, what ends up happening in the real world.  But every once in a while, he does speak the truth, so that's something to keep in mind as we enter the final week of the January transfer window.
+            </p>
+        </div>
+    </div>
+    <br />
+    <br />
+    <hr />
+    <h3>About the Experiment</h3>
+    <p>
+        I've implemented a responsive design page which includes form elements suited to look on different devices. I've implemented the above by using the @media which was taught in class. I've also used the container element to center the whole content which is responsive as well. Following is the code snippet which I used in my CSS file :
+    </p>
+    <div class="text">
+        @media screen and (min-width:400px)
+        {
+        .field-label,.field-label
+        {
+        float:left;
+        }
+        }<br/>
+        @media screen and (max-width:500px)
+        {
+        body{background-color:blue;}
+        .container
+        {
+        width:300px;
+        margin:auto;
+        }
+        .field-label,.field-label
+        {
+        float:none;
+        }
+        }<br />
+        @media screen and (min-width:500px) and (max-width:700px)
+        {
+        body{background-color:green;}
+        .container
+        {
+        width:400px;
+        margin:auto;
+        }
+        .field-label,.field-label
+        {
+        float:none;
+        }
+        }<br />
+        @media screen and (min-width:700px)
+        {
+        body{background-color:yellow;}
+        .container
+        {
+        width:600px;
+        margin:auto;
+        }
+
+        }<br />
+    </div>
+    <hr />
+    <h3>View Source</h3>
+    <div>
+        <a href="../../../fileview/Default.aspx?~/Experiments/Week2/ResponsiveDesign/ResponsiveFormElements.html">View Source</a>
+    </div>
+    <hr />
+    <h3>References</h3>
+    <a href="https://www.youtube.com/watch?v=0qtDzdavqdQ">Youtube Video</a>
+</body>
+</html>

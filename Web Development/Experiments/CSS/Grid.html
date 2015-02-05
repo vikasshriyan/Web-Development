@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Grid</title>
+    <link rel="stylesheet" href="/Experiments/CSS/BorderLayout-CSS.css" />
+</head>
+<body>
+    <div id="container">
+        <div class="row">
+            <div class="col-1">Col-1</div>
+            <div class="col-1">Col-2</div>
+            <div class="col-1">Col-3</div>
+            <div class="col-1">Col-4</div>
+            <div class="col-1">Col-5</div>
+            <div class="col-1">Col-6</div>
+            <div class="col-1">Col-7</div>
+            <div class="col-1">Col-8</div>
+            <div class="col-1">Col-9</div>
+            <div class="col-1">Col-10</div>
+            <div class="col-1">Col-11</div>
+            <div class="col-1">Col-12</div>
+        </div>
+        <div class="row">
+            <div class="col-2">Col-1</div>
+            <div class="col-2">Col-2</div>
+            <div class="col-2">Col-3</div>
+            <div class="col-2">Col-4</div>
+            <div class="col-2">Col-5</div>
+            <div class="col-2">Col-6</div>
+        </div>
+        <div class="row">
+            <div class="col-1">Col-1</div>
+            <div class="col-2">Col-2</div>
+            <div class="col-1">Col-3</div>
+            <div class="col-2">Col-4</div>
+            <div class="col-1">Col-5</div>
+            <div class="col-2">Col-6</div>
+            <div class="col-1">Col-7</div>
+            <div class="col-2">Col-8</div>
+        </div>
+        <div class="row">
+            <div class="col-3">Col-1</div>
+            <div class="col-3">Col-2</div>
+            <div class="col-3">Col-3</div>
+        </div>
+    </div>
+    
+    <h3>About the Experiment</h3>
+    <p>
+        I've implemented a html page with a grid layout using the container, row and col classes.  I've used a css file to make these tags distinct in look:
+        Following is the code in CSS: <br />
+    </p>
+        <code>
+            body {
+            margin:0px;
+            padding:0px;
+            }
+            #north ,#south{
+            height:100px;
+            width:800px;
+            background-color:red;
+            clear:both;
+            }
+            #west,#center,#east {
+            float:left;
+            }
+            #west, #east{
+            height:400px;
+            width:100px;
+            background-color:blue;
+            }
+            #center{
+            height:400px;
+            width:600px;
+            }
+            #container{
+            width:800px;
+            margin:auto;
+            }
+            .row{
+            clear:both;
+            width:780px;
+            }
+            .col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,
+            .col-9,.col-10,.col-11,.col-12{
+            float:left;
+            }
+            .col-1{
+            width:65px;
+            }
+            .col-2{
+            width:130px;
+            }
+            .col-3{
+            width:260px;
+            }
+        </code>
+    </p>
+    <hr />
+    <h3> Source Code</h3>
+    <div>
+        <a href="../../../fileview/Default.aspx?~/Experiments/Week1/HTML/Grid.html">View Source</a>
+    </div>
+    <hr />
+    <h3>References</h3>
+    <a href="https://www.youtube.com/watch?v=0qtDzdavqdQ">Youtube Video</a>
+</body>
+</html>

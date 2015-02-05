@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JQuery</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="0001-JS.js"> </script>
+    <link rel="stylesheet" href="0001.css" />
+   
+</head>
+
+<body>
+    <div class="container">
+        <h2>Jquery Implementation</h2>
+        <hr/>
+        <h4>Description</h4>
+        <p>Demonstrate the idea of hiding and showing objects, in this case an image on button click<br/>
+        Click on the hide button to hide the image and show button to bring back the image.</p><hr />
+        <h4>Demonstration</h4>
+        <button id="hide" class="btn btn-primary">Hide</button>
+        <button id="show" class="btn btn-primary">Show</button>
+        <br/>
+        <p>Click on the hide button to make the image disappear. And then click on the show button to make the image reappear</p>
+        <p id="hideImage">
+            <img src="../Week2/Bootstrap/Image.jpg" class="img-responsive" />
+        </p>
+        <hr/>
+        
+            <h3>About the Experiment</h3>
+            <h4>Fade and Show</h4>
+            <p>
+                In this experiment, when you click on the hide button, the picture below fades away and on clicking on show button makes back the picture comes back. The experiment is done using JQuery.
+                Jquery is basically used to enable client side dynamic content.
+                
+            </p>
+
+            <div>
+                <code>
+                    I'm using the fadeToggle function with parameter of 3 seconds to make the image fade away and come back. I'm targeting the img tag in the html code and the buttons with hide and show id's in the following function. <br/>
+                    $(document).ready(function ()<br/>
+                     {<br />
+                    $("#hide").click(function () <br />
+                    {<br />
+                    $("img").fadeToggle(3000);<br />
+                    });<br />
+                    $("#show").click(function () <br />
+                    {<br />
+                    $("img").fadeToggle(3000);<br />
+                    });<br />
+                    });
+                </code>
+                <hr />
+            </div>
+            <h3>View Source</h3>
+            <div>
+                <a href="../../../fileview/Default.aspx?~/Experiments/Week3/0001-JS.html">Source Code</a>
+            </div>
+            <hr />
+            <h3>References</h3>
+            <a href="http://www.w3schools.com/Jquery/tryit.asp?filename=tryjquery_hide">W3 Schools</a><br />
+            <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+        </div>
+
+</body>
+</html>

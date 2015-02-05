@@ -1,0 +1,6 @@
+﻿../../story/whatisnext.htm?../Experiments/Week2/       What is Next?
+ResponsiveDesign/ResponsiveDesign-01.html              Responsive Design (Basic)
+ResponsiveDesign/ResponsiveFormElements.html           Responsive Design (Form Elements)
+ResponsiveDesign/ResponsiveHeaderandMenu.html          Responsive Design (Header and Menu)
+Bootstrap/Bootstrap-01.html							   Demo Home page using Bootstrap
+JQuery/BasicJquery.html								   Basic jquery Implementation
