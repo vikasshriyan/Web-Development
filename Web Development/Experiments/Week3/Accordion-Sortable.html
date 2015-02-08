@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Accordion and Sortable menu using JQuery</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="JQuery/jquery.js"></script>
+    <script src="JQuery/jquery-ui.js"></script>
+    <script src="Accordion-Sortable.js"></script>
+    <link rel="stylesheet" href="jquery-ui.css" /> 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Accordion-Sortable elements using JQuery</h2>
+        <hr/>
+        <br/>
+        <div id="accordion">
+            <div class="group">
+                <h3>1. Chelsea FC</h3>
+                <div>
+                    <p>Chelsea Football Club are a professional football club based in Fulham, London, who play in the Premier League, the highest level of English football. Founded in 1905, the club have spent most of their history in the top tier of English football.</p>
+                    <img src="../Week2/ResponsiveDesign/chelsea.img.png" />
+                </div>
+            </div>
+            <div class="group">
+                <h3>2. Manchester City</h3>
+                <div>
+                    <p> Manchester City Football Club is a Premier League football club in Manchester, England. Founded in 1880 as St. Mark's, they became Ardwick Association Football Club in 1887 and Manchester City in 1894. </p>
+                <img src="../../images/ManCity.jpg" />
+                </div>
+            </div>
+            <div class="group">
+                <h3>3. Manchester United</h3>
+                <div>
+                    <p>Manchester United Football Club is an English professional football club, based in Old Trafford, Greater Manchester that plays in the Premier League. </p>
+                    <img src="../../images/ManUnited.jpg" />
+                </div>
+            </div>
+            <div class="group">
+                <h3>4. Arsenal FC</h3>
+                <div>
+                    <p>Arsenal Football Club is a professional football club based in Holloway, London which currently plays in the Premier League, the highest level of English football. One of the most successful clubs in English football, they have won 13 First Division and Premier League titles and a joint record 11 FA Cups. </p>
+                    <img src="../../images/Arsenal.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="container">
+        <h3>About the Experiment</h3>
+        <h4>Accordion-Sortable elements</h4>
+        <p>
+           The experiment is performed to implement Accordion-Sortable elements on HTML page using jQuery-UI which can be downloaded from <a href="http://jqueryui.com/" target="_blank">here.</a>
+           The Accordion is used to expand/collapse content which is broken into sections much like tabs. This happens when the header of the tab is clicke, in this case the <code>h3</code> tag.
+           The Sortable is used to sort the elements by choice, it shares the draggble properties meaning the element can be dragged to a specific location in the order.
+        </p>
+        <div>
+            <h5><u>JQuery Script:</u></h5>
+            <code>
+                $(function () <br/>
+                { <br />
+                $("#accordion") <br />
+                .accordion({<br />
+                header: "> div > h3" // Set the header inside the div tag. <br />
+                })<br />
+                .sortable({<br />
+                axis: "y", // Sort vertically<br />
+                handle: "h3", // Sort the header tag.<br />
+                stop: function (event, ui) <br />
+                {<br />
+                $(this).accordion("refresh"); // Refresh accordion to handle new order<br />
+                }<br />
+                });<br />
+                });
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../../fileview/Default.aspx?~/Experiments/Week3/Accordion-Sortable.html">Source Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=eTUstNknCrw">Youtube Video</a>
+        <br/>
+        <a href="http://jquery.com/" target="_blank">jQuery</a>
+
+    </div>
+</body>
+</html>

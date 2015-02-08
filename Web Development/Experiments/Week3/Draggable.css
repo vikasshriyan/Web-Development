@@ -1,0 +1,16 @@
+﻿body {
+}
+
+ .blue {
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+            float: left;
+            margin-left: 50px;
+            
+        }
+ #drag
+ {
+     color:white;
+ }
+      
