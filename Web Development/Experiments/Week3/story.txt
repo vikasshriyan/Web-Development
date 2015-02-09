@@ -1,4 +1,5 @@
 ﻿../../story/whatisnext.htm?../Experiments/Week3/       What is Next?
+0005-JS.html								           JQuery with CSS
 0001-JS.html										   JQuery Implementation (Fading Image)
 0002-ResizeImage.html								   JQuery Implementation (Resizing Image)
 Draggable.html										   JQuery Implementation UI (Draggable Objects)
