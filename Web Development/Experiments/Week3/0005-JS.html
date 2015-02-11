@@ -28,19 +28,23 @@
         <p>Click on the refresh button to refresh the page and change the CSS back to normal.</p>
         <button id="refresh" class="btn btn-primary">Refresh</button>
         <hr/>
-        <h3>About the Experiment:</h3>
+        <h3><u>About the Experiment:</u></h3>
         <h4>JQuery with CSS</h4>
         <p>
             Here in this experiment CSS properties of DOM Objects is manipulated using jQuery.
-            Using the css class, we can set properties of the CSS to any HTML tags.  
+            Using the css class, we can set properties of the CSS to any HTML tags. <br/>
+            In this experiment, I'm changing the CSS properties of the <code>p</code> tag and the <code>h</code> tag.
          </p>
 
         <div>
-            <h4>Code Snippet:</h4>
+            <h3><u>Code Snippet:</u></h3>
+            <p>
+                I'm using the <code>CSS1</code> and <code>CSS2</code> class in the <code>p</code> tag to differentiate what CSS properties I want to apply to both of them.
+                On click, I want to change the CSS properties so I use the <code>.css</code> class to set different properties such as the background color, font-color, etc.
+                On refresh, I reload the page using <code>.reload</code> function.<br />
+                Following is the code snippet:<br />
+            </p>
             <code>
-                I'm using the CSS1 and CSS2 class in the 'p' tag to differentiate what CSS properties I want to apply to both of them.
-                On click, I want to change the CSS properties so I use the .css class to set different properties such as the background color, font-color, etc.
-                On refresh, I reload the page using '.reload' function.<br/><br/>
                 $(document).ready(function () <br/>
                 {<br />
                 $(".CSS1").click(function () // p tag with CSS1 class. <br />
@@ -89,8 +93,8 @@
         </div>
         <h3>View Source</h3>
         <div>
-            <a href="../../../fileview/Default.aspx?~/Experiments/Week3/0005-JS.html">HTML Source Code</a><br/>
-            <a href="../../../fileview/Default.aspx?~/Experiments/Week3/0005-JS.js">JQuery Source Code</a>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week3/0005-JS.html">HTML Source Code</a><br/>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week3/0005-JS.js">JQuery Source Code</a>
         </div>
         <hr />
         <h3>References</h3>

@@ -4,3 +4,4 @@
 0002-ResizeImage.html								   JQuery Implementation (Resizing Image)
 Draggable.html										   JQuery Implementation UI (Draggable Objects)
 Accordion-Sortable.html								   JQuery Implementation UI (Accordion-Sortable)
+
