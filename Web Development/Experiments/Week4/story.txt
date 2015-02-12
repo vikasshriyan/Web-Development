@@ -1,4 +1,5 @@
 ﻿../../story/whatisnext.htm?../Experiments/Week4/       What is Next?
 AJAX-Intro.html								           AJAX Implementation
+AngularJS-Intro										   AngularJS (Use of Controller)
 
 
