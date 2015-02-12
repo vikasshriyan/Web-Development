@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AJAX</title>
+   
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="AJAX-Intro.js"> </script>
+    <script src="JQuery/jquery-ui.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+   
+</head>
+<body>
+    <div class="container">
+        <h1>AJAX Introduction</h1>
+        <hr />
+            <label for="actor">Name</label>
+            <input type="text" style="width:200px;" id="actor" placeholder="Brad Pitt" /><br /><br/>
+            <button class="btn btn-primary" id="getActor">Get Actor's Details</button><br /><br />
+        <table class="table table-bordered table-responsive">
+                <tbody id="actors">
+                    <tr>
+                        <th>Name</th>
+                        <th>Biography</th>
+                        <th>Date Of Birth</th>
+                        <th>Photo</th>
+                    </tr>
+                    <tr class="template">
+                        <td class="name">Brad Pitt</td>
+                        <td class="bio">
+                            An actor and producer known as much for his versatility as he is for his handsome face, Golden Globe-winning actor Brad Pitt's most widely recognized role may be Tyler Durden in Fight Club (1999). But his portrayals of Billy Beane in Moneyball (2011), and Rusty Ryan in the remake of Ocean's Eleven (2001) and its sequels, also loom large in his filmography. Pitt was born William Bradley Pitt on December 18th, 1963, in Shawnee, Oklahoma, and was raised in Springfield, Missouri. He is the son of Jane Etta (Hillhouse), a school counselor, and William Alvin Pitt, a truck company manager. He has a younger brother, Douglas (Doug) Pitt, and a younger sister, Julie Neal Pitt. At Kickapoo High School, Pitt was involved in sports, debating, student government and school musicals. Pitt attended the University of Missouri, where he majored in journalism with a focus on advertising. He occasionally acted in fraternity shows. He left college two credits short of graduating to move to California. Before he became successful at acting, Pitt supported himself by driving strippers in limos, moving refrigerators and dressing as a giant chicken while working for "el Pollo Loco". Pitt's earliest credited roles were in television, starting on the daytime soap opera Another World (1964) before appearing in the recurring role of Randy on the legendary prime time soap opera Dallas (1978). Following a string of guest appearances on various television series through the 1980s, Pitt gained widespread attention with a small part in Thelma & Louise (1991), in which he played a sexy criminal who romanced and conned Geena Davis. This lead to starring roles in badly received films such as Johnny Suede (1991) and Cool World (1992). But Pitt's career hit an upswing with his casting in A River Runs Through It (1992), which cemented his status as an multi-layered actor as opposed to just a pretty face. Pitt's subsequent projects were as quirky and varied in tone as his performances, ranging from his unforgettably comic cameo as stoner roommate Floyd in True Romance (1993) to romantic roles in such visually lavish films as Interview with the Vampire: The Vampire Chronicles (1994) and Legends of the Fall (1994), to an emotionally tortured detective in the horror-thriller Se7en (1995). His portrayal of frenetic oddball Jeffrey Goines in Twelve Monkeys (1995) won him a Globe for Best Performance by an Actor in a Supporting Role. Pitt's portrayal of Achilles in the big-budget period drama Troy (2004) helped establish his appeal as action star and was closely followed by a co-starring role in the stylish spy-versus-spy flick Mr. & Mrs. Smith (2005). It was on the set of Mr. & Mrs. Smith that Pitt, who married Jennifer Aniston in a highly publicized ceremony in 2000, met his current partner Angelina Jolie. Pitt left Aniston for Jolie in 2005, a break-up that continues to fuel tabloid stories years after its occurrence. He continues to wildly vary his film choices, appearing in everything from high-concept popcorn flicks such as Megamind (2010) to adventurous critic-bait like Inglourious Basterds (2009) and The Tree of Life (2011). He has received two Best Actor Oscar nominations, for The Curious Case of Benjamin Button (2008) and Moneyball (2011). In 2014, he starred in the war film Fury (2014), opposite Shia LaBeouf, Logan Lerman, Jon Bernthal, and Michael Peña. Pitt and Jolie have six children, including two sons and a daughter who were adopted.
+                        </td>
+                        <td class="dob">18th October 1970</td>
+                        <td>
+                            <img class="photo" src="http://ia.media-imdb.com/images/M/MV5BMjA1MjE2MTQ2MV5BMl5BanBnXkFtZTcwMjE5MDY0Nw@@._V1_SX214_CR0,0,214,317_AL_.jpg" />
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <hr/>
+        <h3><u>About the Experiment:</u></h3>
+        <h4>AJAX Implementation</h4>
+        <p>
+            AJAX stands for Asynchronous JavaScript and XML. AJAX is mainly used for exchanging data with a server, and updating parts of a web page - without reloading the whole page.<br/>
+            In this experiment, I've used the 'myapifilms' as one of the Web Api to download data which uses the imdb database. I render this data through generating a link and in a 'JSONP' format.
+            I render the actor's details and display it using a table. Type in the name of any actor in the input field and click on the button to view the actor's biography, date of birth and a pic.
+        </p>
+
+        <div>
+            <h3><u>Code Snippet:</u></h3>
+            <p>
+                In the following code snippet, I use the click function on the button id <code>getActor</code>. I then get the value of the input field by <code>id</code> actor.
+                Then I use the <code>ajax</code> function which includes the url of the web api, I want the data from in a <code>JSONP</code> format.
+                I then define a standard template, in this case a <code>table</code> to display the various data I render.
+                I then replace the different elements of the JSONP object such as <code>.name</code> id with the rendered name of the actor.<br/>
+                Following is the code snippet:<br />
+            </p>
+            <code>
+                $(function () { <br/>
+                $("#getActor").click(function () {  // Button with "getActor"" id<br />
+                var actor = $("#actor").val(); // Input field with "actor" id <br /> 
+                $.ajax( // ajax function<br />
+                {<br />
+                url: "http://www.myapifilms.com/imdb?name="+actor+"&format=JSONP&filmography=0&limit=1&lang=en-us&exactFilter=0&bornDied=0&starSign=0&uniqueName=0&actorActress=0&actorTrivia=0&actorPhotos=N&actorVideos=N&salary=0&spouses=0&tradeMark=0&personalQuotes=0",<br />
+                dataType: "jsonp", // To render in JSONP format<br />
+                success: renderInfo <br />
+                });<br />
+                });<br />
+                });<br />
+                function renderInfo(actors)<br />
+                {<br />
+                var parent = $("#actors");<br />
+                var template = parent.find(".template"); // define a template <br />
+                parent.empty();<br />
+                for (var a in actors) {<br />
+                var actor = actors[a];<br />
+                console.log(actor);<br />
+                var dob = actor.dateOfBirth; //render actor's date of birth<br />
+                console.log(dob);<br />
+                var b = actor.bio; //render actor's biography<br />
+                console.log(b);
+                var urlPhoto= actor.urlPhoto; //render actor's pic<br />
+                var name = actor.name; //render actor's full name.<br />
+                var item = template.clone();<br />
+                item.find(".name").html(name); // replace the new name in out html<br />
+                item.find(".bio").html(b);// replace the biography in out html<br />
+                item.find(".dob").html(dob);// replace the date of birth in out html<br />
+                item.find(".photo").attr("src", urlPhoto);// replace the image in out html <br />
+                parent.append(item);<br />
+                }<br />
+                }
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week4/AJAX-Intro.html">HTML Source Code</a><br />
+            <a href="../../fileview/Default.aspx?~/Experiments/Week4/AJAX-Intro.js">JQuery Source Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=mErJ3HFWZHs">Youtube Video</a><br />
+        <a href="http://www.w3schools.com/">W3 Schools</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+    </div>
+</body>
+</html>
