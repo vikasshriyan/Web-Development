@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS</title>
+   
+    <script src="AngularJS/angular.js"></script>
+    <script src="JQuery/jquery-1.11.2.js"></script>
+    <script src="HandlingArray-AngularJS.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+<body ng-app="filter">
+ <div class="container" ng-controller="FilterController">
+     <h1>Experiment for DOM modification on client side</h1>
+     <hr />
+     <h3>Instructions</h3>
+     <ul>
+         <li>Entering any keyword will result in filtering of data in table. </li>
+         <li>Filtering is case insensitive i.e. mit, Mit, mIt, MIT and MiT are all the same.</li>
+         <li>Multiple filters can be applied at one time.</li>
+     </ul>
+     <br />
+     <table class="table table-bordered table-hover">
+         <tr>
+             <th><label>First Name</label></th>
+             <th><label>Last Name</label></th>
+             <th><label>Gender</label></th>
+             <th><label>Major</label></th>
+             <th><label>University</label></th>
+         </tr>
+         <tr>
+             <th><input ng-model="searchFirstName" class="form-control" placeholder="Enter First Name to Filter" ng-change="fnameSearch()" /></th>
+             <th><input ng-model="searchLastName" class="form-control" placeholder="Enter Last Name to Filter" ng-change="lnameSearch()" /></th>
+             <th><input ng-model="searchGender" class="form-control" placeholder="Enter Gender to Filter" ng-change="genderSearch()" /></th>
+             <th><input ng-model="searchMajor" class="form-control" placeholder="Enter Major to filter" ng-change="majorSearch()" /></th>
+             <th><input ng-model="searchUniversity" class="form-control" placeholder="Enter University to Filter" ng-change="univSearch()" /></th>
+         </tr>
+         <tr ng-repeat="student in students">
+             <td>{{student.firstName}}</td>
+             <td>{{student.lastName}}</td>
+             <td>{{student.gender}}</td>
+             <td>{{student.major}}</td>
+             <td>{{student.university}}</td>
+         </tr>
+     </table>
+     <hr/>
+     <br/>
+     <h3><u>About the Experiment</u></h3>
+     <p>
+         AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.<br />
+         You can download the AngularJS from <a href="https://angularjs.org/">here</a>. <br />
+         This experiment was performed to learn handling of data on client side. Angular.js has power of manipulation DOM model by which data inside the DOM can be deleted, filtered, added or updated, however this will not be the permanent change but it reduces the efforts which are required if all these functionalities were done on server side.
+     </p><hr/>
+     <div>
+         <h3><u>Code Snippet</u></h3>
+         <p>
+             Here, I've initially loaded the AngularJS module using <code>.module</code> function in the js file and linking it using <code>ng-app</code> in the HTML file.
+             Using the <code>app</code> namespace and the <code>controller</code> function, linking the <code>id</code> FilterController in the HTML page, I then declare a function with <code>$scope</code>
+             parameter. Many student variables are declared with first and last name, gender, major and university.
+             I declare a students array with all the student variables. For the function <code>fnameSearch</code>, firstly I declare an empty array <code>FilterStudents</code> which would contained the filtered students.
+             In the <code>for</code> loop, for every student's first name I collect the substring of the names in <code>matchname</code> as it is typed dynamically and check it with the given list of student's first name.
+         If it's a match, I push the student to the <code>FilterStudents</code> array. I use the saame logic for the rest of the fields.
+         </p><br/>
+         <code>
+             var app = angular.module("filter", []) // load the module<br/>
+
+             app.controller("FilterController", function ($scope) { // using the controller function under the app namespace<br />
+             var vikas = { // declaring a student variable and it's elements<br />
+             firstName: "Vikas",<br />
+             lastName: "Shriyan",<br />
+             gender: "Male",<br />
+             major: "Computer Science",<br />
+             university: "Northeastern University"<br />
+             };<br /><br />
+
+            
+             ...Array elements<br /><br />
+
+
+             var students = [vikas, shakti, pankaj, vikas1, abhishek, ankita, karthik, madura]; // students array<br />
+             console.log("Here");<br />
+             $scope.students = students;<br />
+
+             $scope.fnameSearch = function () { //fnameSearch function declared <br />
+             var FilterStudents = [];           // empty array<br />     
+             for (i = 0; i < students.length ; i++) { // for each student in the array<br />
+             var matchname = students[i].firstName.substring(0, $scope.searchFirstName.length); //collect the letters typed dynamically<br />
+             if (matchname.toLowerCase() == $scope.searchFirstName.toLowerCase()) {             // check if the matchname is equal to the first name of students in the list<br />
+             FilterStudents.push(students[i]);                                                  // push the student into the empty array<br />
+             }<br />
+             }
+             $scope.students = FilterStudents;                                                  // display the filtered students.<br />
+             }<br />
+             $scope.lnameSearch = function () {<br />
+             var FilterStudents = [];<br />
+             for (i = 0; i < students.length ; i++) {<br />
+             var matchname = students[i].lastName.substring(0, $scope.searchLastName.length);<br />
+             if (matchname.toLowerCase() == $scope.searchLastName.toLowerCase()) {<br />
+             FilterStudents.push(students[i]);<br />
+             }<br />
+             }<br />
+             $scope.students = FilterStudents;<br />
+             }<br />
+
+             $scope.genderSearch = function () {<br />
+             var FilterStudents = [];<br />
+             for (i = 0; i < students.length ; i++) {<br />
+             var matchname = students[i].gender.substring(0, $scope.searchGender.length);<br />
+             if (matchname.toLowerCase() == $scope.searchGender.toLowerCase()) {<br />
+             FilterStudents.push(students[i]);<br />
+             }<br />
+             }<br />
+             $scope.students = FilterStudents;<br />
+             <br />
+
+             $scope.majorSearch = function () {<br />
+             var FilterStudents = [];<br />
+             for (i = 0; i < students.length ; i++) {<br />
+             var matchname = students[i].major.substring(0, $scope.searchMajor.length);<br />
+             if (matchname.toLowerCase() == $scope.searchMajor.toLowerCase()) {<br />
+             FilterStudents.push(students[i]);<br />
+             }<br />
+             }<br />
+             $scope.students = FilterStudents;<br />
+             }<br />
+
+             $scope.univSearch = function () {<br />
+             var FilterStudents = [];<br />
+             for (i = 0; i < students.length ; i++) {<br />
+             var matchname = students[i].university.substring(0, $scope.searchUniversity.length);<br />
+             if (matchname.toLowerCase() == $scope.searchUniversity.toLowerCase()) {<br />
+             FilterStudents.push(students[i]);<br />
+             }<br />
+             }<br />
+             $scope.students = FilterStudents;<br />
+             }<br />
+             });
+
+         </code>
+         <hr />
+     </div>
+     <h3>View Source</h3>
+     <div>
+         <a href="../../fileview/Default.aspx?~/Experiments/Week4/HandlingArray-AngularJS.html">HTML Source Code</a><br />
+         <a href="../../fileview/Default.aspx?~/Experiments/Week4/HandlingArray-AngularJS.js">JQuery Source Code</a>
+     </div>
+     <hr />
+     <h3>References</h3>
+     <a href="https://www.youtube.com/watch?v=KCTKd5ZmXMQ">Youtube Video</a><br />
+     <a href="https://www.w3schools.com"></a>
+     <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+
+
+
+ </div>
+</body>
+</html>
