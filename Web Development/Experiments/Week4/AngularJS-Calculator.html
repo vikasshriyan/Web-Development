@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="AngularJS-Calculator.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+<body ng-app="cal">
+    <div class="container">
+        <h2>Calculator using AngularJS</h2>
+        <hr />
+        <div class="row">
+            <div ng-controller="calculatorController" class="col-md-4">
+                <input class="form-control" ng-model="firstNumber" placeholder="0"> <br />
+                <input class="form-control" ng-model="secondNumber" placeholder="0">
+                <br />
+                <b>Select Operation </b>:<br /><br />
+                <button ng-click="add()" class="btn btn-primary btn-block">+</button>
+                <button ng-click="subtract()" class="btn btn-primary  btn-block">-</button>
+                <button ng-click="divide()" class="btn btn-primary  btn-block">/</button>
+                <button ng-click="multiply()" class="btn btn-primary  btn-block">*</button><br />
+                <b>Result:</b> <p ng-bind="output"></p>
+            </div>
+        </div>
+        <div class="row">
+            <hr />
+            <h3><u>About the Experiment</u></h3>
+            <h4>AngularJS - Calculator using Controller.</h4>
+            <p>
+                AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.<br />
+                You can download the AngularJS from <a href="https://angularjs.org/">here</a>. <br />
+                In this experiment, I've used the controller function to make a calculator which performs the given operations above dynamically on the HTML page.
+            </p>
+
+            <div>
+                <h3><u>Code Snippet</u></h3>
+                <p>
+                    Here, I've initially loaded the AngularJS module using <code>.module</code> function in the js file and linking it using <code>ng-app</code> in the HTML file.
+                    Using the <code>app</code> namespace and the <code>controller</code> function, linking the <code>ng-controller</code> calculatorController in the HTML page, I then declare function <code>add()</code> with <code>$scope</code>
+                    parameter. Two variables are declared for operations on two numbers collected using <code>ng-model</code> firstNumber and secondNumber.
+                    I then parse the given inputs into integers and do the addition operation. I use the same logic for other operations as well.
+                    
+                </p>
+                <code>
+                    var app = angular.module("cal",[]) // load the angular module.<br /><br />
+
+                    app.controller("calculatorController", function ($scope) { //Using the controller function with app namspace<br />
+                    $scope.add = function () { // define the add function <br />
+                    var n1 = $scope.firstNumber; // collect the first number from ng-model firstNumber<br />
+                    var n2 = $scope.secondNumber; //collect the second number from ng-model firstSecond<br />
+                    $scope.output = parseInt(n1) + parseInt(n2); //Convert the given i/p into Integers and add<br />
+                    }<br /><br />
+
+                    $scope.subtract = function () {<br />
+                    var n1 = $scope.firstNumber;<br />
+                    var n2 = $scope.secondNumber;<br />
+                    $scope.output = parseInt(n1) - parseInt(n2);<br />
+                    }<br /><br />
+
+                    $scope.divide = function () {<br />
+                    var n1 = $scope.firstNumber;<br />
+                    var n2 = $scope.secondNumber;<br />
+                    $scope.output = parseInt(n1) / parseInt(n2);<br />
+                    }<br /><br />
+
+                    $scope.multiply = function () {<br />
+                    var n1 = $scope.firstNumber;<br />
+                    var n2 = $scope.secondNumber;<br />
+                    $scope.output = parseInt(n1) * parseInt(n2);<br />
+                    }<br />
+                    });
+                </code>
+                <hr />
+            </div>
+            <h3>View Source</h3>
+            <div>
+                <a href="../../fileview/Default.aspx?~/Experiments/Week4/AngularJS-Calculator.html">HTML Source Code</a><br />
+                <a href="../../fileview/Default.aspx?~/Experiments/Week4/AngularJS-Calculator.js">JQuery Source Code</a>
+            </div>
+            <hr />
+            <h3>References</h3>
+            <a href="https://www.youtube.com/watch?v=KCTKd5ZmXMQ">Youtube Video</a><br />
+            <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+        </div>
+    </div>
+</body>
+</html>

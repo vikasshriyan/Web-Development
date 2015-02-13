@@ -49,4 +49,8 @@ app.controller("StudentRecordController", function ($scope) {
         };
         $scope.students.push(student);
     }
+
+    $scope.updateForm = function (student) {
+        alert($scope.newStudent.firstname);
+    }
 });

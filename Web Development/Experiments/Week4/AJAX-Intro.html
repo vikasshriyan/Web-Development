@@ -18,10 +18,14 @@
     <div class="container">
         <h1>AJAX Introduction</h1>
         <hr />
-            <label for="actor">Name</label>
-            <input type="text" style="width:200px;" id="actor" placeholder="Brad Pitt" /><br /><br/>
-            <button class="btn btn-primary" id="getActor">Get Actor's Details</button><br /><br />
-        <table class="table table-bordered table-responsive">
+        <h4>Enter a actor's full name and click on the button to get his details</h4>
+            <div class="input-group">
+                <input type="text" class="form-control" id="actor" placeholder="Brad Pitt">
+                 <span class="input-group-btn">
+                     <button class="btn btn-default" id="getActor" type="button" >Go!</button>
+                 </span>
+            </div><br/>
+            <table class="table table-bordered table-responsive">
                 <tbody id="actors">
                     <tr>
                         <th>Name</th>

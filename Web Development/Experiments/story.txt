@@ -1,6 +1,6 @@
-﻿../story/whatisnext.htm?../Experiments/                  Experiments
-../story/index.htm?../Experiments/Week1/story.txt        WEEK1 - HTML and CSS Experiments
-../story/index.htm?../Experiments/Week2/story.txt        WEEK2 - Responsive Design and Bootstrap
-../story/index.htm?../Experiments/Week3/story.txt        WEEK3 - JQuery
-../story/index.htm?../Experiments/Week4/story.txt        WEEK4 - AJAX and AngularJS
+﻿../story/whatisnext.htm?../Experiments/                   Experiments
+../story/index.htm?../Experiments/Week1/story.txt         HTML and CSS Experiments (Week1)
+../story/index.htm?../Experiments/Week2/story.txt         Responsive Design and Bootstrap (Week2)
+../story/index.htm?../Experiments/Week3/story.txt         JQuery (Week3)
+../story/index.htm?../Experiments/Week4/story.txt         AJAX and AngularJS (Week4)
 

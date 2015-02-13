@@ -15,22 +15,25 @@
 
     <body ng-app="demoController">
         <div class="container">
-            <div ng-controller="Controller">
-                <h1> AngularJS Intro - Demo Controller</h1>
-                <hr/><br/>
-                <h4>
-                Edit the First and Last Name to see the changes in the Full Name.
-                </h4><br/>
-               <label for="first">First Name </label> 
-                <input type="text" id="first" ng-model="student.first" placeholder="Vikas" /><br/><br/>
-                <label for="last">Last Name </label>
-                <input type="text" id="last" ng-model="student.last" placeholder="Shriyan" /><br/>
-                <br />
-                <label>Full Name</label>&nbsp;  {{student.first + " " + student.last}}
-                <hr/>
+            <div class="row">
+                <div ng-controller="Controller" class="col-md-4">
+                    <h1> AngularJS Intro - Demo Controller</h1>
+                    <hr /><br />
+                    <h4>
+                        Edit the First and Last Name to see the changes in the Full Name.
+                    </h4><br />
+                    <label for="first">First Name </label>
+                    <input type="text" id="first" ng-model="student.first" placeholder="Vikas" /><br /><br />
+                    <label for="last">Last Name </label>
+                    <input type="text" id="last" ng-model="student.last" placeholder="Shriyan" /><br />
+                    <br />
+                    <label>Full Name</label>&nbsp;  {{student.first + " " + student.last}}
+                    <hr />
 
-                
+
+                </div>
             </div>
+
             <h3><u>About the Experiment</u></h3>
             <h4>AngularJS Introduction</h4>
             <p>

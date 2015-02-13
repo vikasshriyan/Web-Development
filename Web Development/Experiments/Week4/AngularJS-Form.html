@@ -24,7 +24,7 @@
                     <th>Last Name</th>
                     <th>Course 1</th>
                     <th>Course 2</th>
-                    <th>Options</th>
+                    <th>&nbsp;</th>
 
                 </tr>
                 <tr>
@@ -32,10 +32,14 @@
                     <td><input class="form-control" ng-model="newStudent.firstname" placeholder="First Name" /></td>
                     <td><input class="form-control" ng-model="newStudent.lastname" placeholder="Last Name" /></td>
                     <td><input class="form-control" ng-model="newStudent.course1" placeholder="Programming Design Paradigm" /></td>
-                    <td><input class="form-control" ng-model="newStudent.course2" placeholder="Network Security" /></td>
+                    <td><input class="form-control" ng-model="newStudent.course2" placeholder="Network Security" /></td>                   
                     <td>
-                        <button ng-click="add()" class="btn btn-success">Add</button>
+                        <button ng-click="add()" class="btn btn-success glyphicon glyphicon-plus"></button>
+                    
+                    
+                        <button ng-click="updateForm()" class="btn btn-primary glyphicon glyphicon-ok"></button>
                     </td>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -46,8 +50,8 @@
                     <td>{{student.course1}}</td>
                     <td>{{student.course2}}</td>
                     <td>
-                        <button class="btn btn-danger" ng-click="delete(student)">Delete</button>
-                        <button class="btn btn-warning" ng-click="edit(student)">Edit</button>
+                        <button class="btn btn-danger glyphicon glyphicon-remove" ng-click="delete(student)"></button>
+                        <button class="btn btn-warning glyphicon glyphicon-pencil" ng-click="edit(student)"></button>
                     </td>
                 </tr>
             </tbody>
@@ -64,17 +68,19 @@
             <h3><u>Code Snippet</u></h3>
             <p>
                 Here, I've initially loaded the AngularJS module using <code>.module</code> function in the js file and linking it using <code>ng-app</code> in the HTML file.
-                Using the <code>app</code> namespace and the <code>controller</code> function, linking the <code>id</code> FilterController in the HTML page, I then declare a function with <code>$scope</code>
-                parameter. Many student variables are declared with first and last name, gender, major and university.
-                I declare a students array with all the student variables. For the function <code>fnameSearch</code>, firstly I declare an empty array <code>FilterStudents</code> which would contained the filtered students.
-                In the <code>for</code> loop, for every student's first name I collect the substring of the names in <code>matchname</code> as it is typed dynamically and check it with the given list of student's first name.
-                If it's a match, I push the student to the <code>FilterStudents</code> array. I use the saame logic for the rest of the fields.
+                Using the <code>app</code> namespace and the <code>controller</code> function, linking the <code>ng-controller</code> StudentRecordControlle in the HTML page, I then declare a function with <code>$scope</code>
+                parameter. Many student variables are declared with first and last name, course1 and course2.
+                I declare a students array with all the student variables. For the function <code>add()</code>, I declare a newStudent with the new name and courses assigned to it dynamically, from user.
+            I then add the new student using <code>push</code> function
+            For <code>delete</code> function, I collect the index of the current student which the user has clicked and then delete it using the <code>slice</code> function.
+            Only one student needs to be deleted, hence the second parameter is given 1.
+            The <<code>update</code> function is just used to notify the server and the user that the has completed all the fields.
             </p><br />
             <code>
-                var app = angular.module("form", [])<br/>
+                var app = angular.module("form", []) // load the angular module<br/>
 
-                app.controller("StudentRecordController", function ($scope) {<br />
-                var student1 = {<br />
+                app.controller("StudentRecordController", function ($scope) { // load the controller<br />
+                var student1 = { // student variable<br />
                 firstname: "Vikas",<br />
                 lastname: "Shriyan",<br />
                 course1: "Programming Design Paradigm",<br />
@@ -88,31 +94,34 @@
 
                 $scope.edit = function (student) {<br />
                 console.log(student);<br />
-                $scope.newStudent = student;<br />
+                $scope.newStudent = student; // edit the fields dynamically.<br />
                 }
                 <br />
                 $scope.delete = function (student) {<br />
-                var index = $scope.students.indexOf(student);<br />
-                $scope.students.splice(index, 1);<br />
+                var index = $scope.students.indexOf(student); // current index of the student in the array<br />
+                $scope.students.splice(index, 1); // remove the student from the array<br />
                 }<br />
                 $scope.add = function () {<br />
                 console.log($scope.newStudent);<br />
-                var student = {<br />
+                var student = { // new student with given details from users input<br />
                 firstname: $scope.newStudent.firstname,<br />
                 lastname: $scope.newStudent.lastname,<br />
                 course1: $scope.newStudent.course1,<br />
                 course2: $scope.newStudent.course2,<br />
                 };<br />
-                $scope.students.push(student);<br />
+                $scope.students.push(student); // add the student onto the list<br />
                 }<br />
-                });<br />
+                $scope.updateForm = function (student) {<br/>
+                alert($scope.newStudent.firstname);<br />
+                }<br />
+                });
 
             </code>
             <hr />
         </div>
         <h3>View Source</h3>
         <div>
-            <a href="../../fileview/Default.aspx?~/Experiments/Week4/AngularJS Form.html">HTML Source Code</a><br />
+            <a href="../../fileview/Default.aspx?~/Experiments/Week4/AngularJS-Form.html">HTML Source Code</a><br />
             <a href="../../fileview/Default.aspx?~/Experiments/Week4/AngularJS-Form.js">JQuery Source Code</a>
         </div>
         <hr />
