@@ -2,5 +2,7 @@
 AJAX-Intro.html								           AJAX Implementation
 AngularJS-Intro.html								   AngularJS (Use of Controller)
 HandlingArray-AngularJS.html						   AngularJS (DOM modification on client side)
+AngularJS-Form.html									   AngularJS (Form)
+
 
 
