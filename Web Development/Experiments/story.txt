@@ -2,5 +2,5 @@
 ../story/index.htm?../Experiments/Week1/story.txt         HTML and CSS Experiments (Week1)
 ../story/index.htm?../Experiments/Week2/story.txt         Responsive Design and Bootstrap (Week2)
 ../story/index.htm?../Experiments/Week3/story.txt         JQuery (Week3)
-../story/index.htm?../Experiments/Week4/story.txt         AJAX and AngularJS (Week4)
+../story/index.htm?../Experiments/Week4/story.txt         AJAX, AngularJS, JSONP and Web APIs (Week4)
 
