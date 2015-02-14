@@ -1,7 +1,7 @@
 ﻿../../story/whatisnext.htm?../Experiments/Week4/       What is Next?
 AJAX-Intro.html								           AJAX Implementation
 AngularJS-Intro.html								   AngularJS (Use of Controller)
-AngularJS-Calculator.html								   AngularJS (Calculator)
+AngularJS-Calculator.html							   AngularJS (Calculator)
 HandlingArray-AngularJS.html						   AngularJS (DOM modification on client side)
 AngularJS-Form.html									   AngularJS (Form)
 
