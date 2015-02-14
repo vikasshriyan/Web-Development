@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="LogoQuiz.js"></script>
+    <link rel="stylesheet" href="LogoQuiz.css" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+<body ng-app="logoQuiz">
+    <div class="container" ng-controller="LogoController">
+        <h1>Logo Quiz using Angular.js</h1>
+        <hr />
+        <h3>Guess the logo's of the following Football clubs. Click on the logo for the answer </h3>
+        <br />
+        <br />
+        <h1>{{answer}}</h1>
+        <br />
+        <br />
+        <div class="row">
+            <img class="img-responsive" ng-click="realmadrid()" src="../../images/Real Madrid.jpg" />&nbsp;
+            <img class="img-responsive" ng-click="manunited()" src="../../images/ManUnited.jpg" />&nbsp;
+            <img style="margin-top:-20px" class="img-responsive" ng-click="arsenal()" src="../../images/Arsenal (2).jpg" />&nbsp;&nbsp;
+            <img style="height:100px;width:100px;" class="img-responsive" ng-click="asroma()" src="../../images/ASRoma.png" />&nbsp;
+        </div>
+        <div class="row">
+            <img class="img-responsive" ng-click="atm()" src="../../images/ATM.jpg" />&nbsp;
+            <img class="img-responsive" ng-click="barcelona()" src="../../images/Barcelona.jpg" />&nbsp;
+            <img class="img-responsive" ng-click="liverpool()" src="../../images/Liverpool.jpg" />&nbsp;
+            <img class="img-responsive" ng-click="mancity()" src="../../images/ManCity (2).jpg" />
+        </div>
+        <br />
+        <hr />
+        <h3><u>About the Experiment</u></h3>
+        <h4>AngularJS - Logo Quiz using Controller.</h4>
+        <p>
+            AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.<br />
+            You can download the AngularJS from <a href="https://angularjs.org/">here</a>. <br />
+            In this experiment, I've used the controller function to make a logo quiz. The user can guess if he is right or wrong in guessing the football club by clicking on the logo.
+        </p>
+
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                Here, I've initially loaded the AngularJS module using <code>.module</code> function in the js file and linking it using <code>ng-app</code> in the HTML file.
+                Using the <code>app</code> namespace and the <code>controller</code> function, linking the <code>ng-controller</code> logoController in the HTML page, I then assign a null value <code>$scope.answer</code> so that initially, there is no text when the page is loaded.
+                I then declare a function called <code>realmadrid</code> and using <code>ng-click</code>, on click I assign the value "Real Madrid" to the variable dynamically.
+                I use the same logic for the rest of the functions.
+
+            </p>
+            <code>
+                var app=angular.module("logoQuiz",[]) // load the angular module<br/>
+
+                app.controller("LogoController", function ($scope) { // load the controller<br />
+                $scope.answer = "";<br />
+
+                $scope.realmadrid = function () { // define a function <br />
+                $scope.answer = "Real Madrid"; // assign the value dynamically.<br />
+
+                };<br /><br />
+                $scope.manunited = function () {<br />
+                $scope.answer = "Manchester United";<br />
+
+                };<br /><br />
+                $scope.arsenal = function () {<br />
+                $scope.answer = "Arsenal";<br />
+
+                };<br /><br />
+                $scope.asroma = function () {<br />
+                $scope.answer = "AS Roma";<br />
+
+                };<br /><br />
+                $scope.atm = function () {<br />
+                $scope.answer = "Athletico Madrid";<br />
+
+                };<br /><br />
+                $scope.barcelona = function () {<br />
+                $scope.answer = "Barcelona";<br />
+
+                };<br /><br />
+                $scope.liverpool = function () {<br />
+                $scope.answer = "Liverpool";<br />
+
+                };<br /><br />
+                $scope.mancity = function () {<br />
+                $scope.answer = "Manchester City";<br />
+
+                };<br />
+                });
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week4/LogoQuiz.html">HTML Source Code</a><br />
+            <a href="../../fileview/Default.aspx?~/Experiments/Week4/LogoQuiz.js">JQuery Source Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=KCTKd5ZmXMQ">Youtube Video</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+    </div>
+</body>
+</html>

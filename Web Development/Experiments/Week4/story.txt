@@ -4,6 +4,7 @@ AngularJS-Intro.html								   AngularJS (Use of Controller)
 AngularJS-Calculator.html							   AngularJS (Calculator)
 HandlingArray-AngularJS.html						   AngularJS (DOM modification on client side)
 AngularJS-Form.html									   AngularJS (Form)
+LogoQuiz.html										   AngularJS (Logo Quiz)
 
 
 
