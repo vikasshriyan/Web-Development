@@ -25,7 +25,7 @@
         <div class="content">
             <article class="topcontent">
                 <header>
-                    <img src="Experiments/Week1/Image/Image.jpg" style="width:100%;height:400px;border-radius:5px;" />
+                    <img src="Experiments/Week1/Image/Image.jpg"  />
                 </header>
                 <content>
                     <p>
