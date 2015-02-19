@@ -1,0 +1,103 @@
+﻿<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="SearchStudent.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body ng-app="myApp">
+    <div class="container" ng-controller="MyController">
+        <div class="search-container">
+            <h1>Dynamic Search</h1>
+            <hr/>
+            <h2>Search Student</h2>
+            <div class="input-group">
+                <input type="text" placeholder="Search student records" class="form-control" ng-model="query" />
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" ng-click=""><span class="glyphicon glyphicon-search" /></button>
+                </span>
+            </div>
+        </div>
+        <div class="container">
+            <ul class="list-group col-md-8" ng-show="query">
+
+                    <li ng-animate="'animate'" class="list-group-item " ng-repeat="item in artists | filter:query">
+                        <img class="pic" ng-src="../../images/{{item.shortname}}.jpg" width="100" height="100" alt="Photo of {{item.name}}">
+                        <h3>{{item.name}}</h3>
+                        <h4>{{item.reknown}}</h4>
+                        <h5>{{item.bio}}</h5>
+                </li>
+            </ul>
+         </div>
+        <hr />
+        <br />
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.<br />
+            You can download the AngularJS from <a href="https://angularjs.org/">here</a>.<br />
+            In this experiment, I make use of a JSON array object
+            that contains records of a certain number of students.Using this data I can search for these students
+            and the result shows up dynamically by making use of Angular's filter to filter the results. <br />
+
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                Here, I've initially loaded the AngularJS module using <code>.module</code> function in the js file and linking it using <code>ng-app</code> in the HTML file.
+            I also use the another module called <code>ng-animate</code> which depends on my search module.
+                Using the <code>app</code> namespace and the <code>controller</code> function, linking the <code>ng-controller</code> SearchController in the HTML page, I then declare a function with <code>$scope</code>
+                parameter. Many students are declared in the array.
+            </p><br />
+            <code>
+                var myApp = angular.module('myApp', ['ngAnimate']); // load the angular module<br/>
+
+                myApp.controller('MyController', function MyController($scope) { // load the controller and the function<br />
+                $scope.artists = [<br />
+                {<br />
+                "name": "Vikas Shriyan<br />
+                "shortname": "Vikas_Shriyan",<br />
+                "reknown": "Northeastern University",<br />
+                "bio": "I’m Vikas Shriyan from India doing my Masters in Computer Science from Northeastern University in Boston. I was born and brought up in Mumbai, Maharashtra. I have lived in Mumbai all my life before coming to the states last summer. My family has always supported me in doing things, which I like, one important decision which was joining Northeastern University and coming to states. I hold my family and my friends at the very top.",
+                },<br />
+                {<br />
+                "name": "Pankaj Tripathi",<br />
+                "shortname": "P_K",<br />
+                "reknown": "Northeastern University",<br />
+                "bio": "Hi, I am Pankaj Tripathi, a graduate student at Northeastern University. This website is my homepage developed as a part of Web Development Course (CS 5610) under the guidance of Prof. Jose Annunziato."  <br/>              },<br />
+                           {<br />
+                "name": "Karthik Mahaley",<br />
+                "shortname": "Karthik_Mahaley",<br />
+                "reknown": "Northeastern University",<br />
+                "bio": "Hi, I am Karthik Mahaley, a graduate student at Northeastern University. This website is my homepage developed as a part of Web Development Course (CS 5610) under the guidance of Prof. Jose Annunziato."  <br />
+                {<br />
+                "name": "Abhishek Kumar",<br />
+                "shortname": "Abhi_Kumar",<br />
+                "reknown": "Northeastern University",<br />
+                "bio": " I am passionate about whatever I do. I am a dedicated and optimistic guy who takes responsibilities with utmost enthusiasm. I always try to complete my assigned tasks on time and follow discipline in whatever I do. My optimistic and planned approach in things I do is what drives me towards success. While at coop, I will try my best to learn new upcoming technologies and work culture so that it will help me to achieve my mid term goal. My midterm goal is to get job offer with some major  companies like Apple Inc., Google etc"<br />
+                },<br />
+                {<br />
+                "name": "Shakti Prasad",<br />
+                "shortname": "Shakti_Patro",<br />
+                "reknown": "Northeastern University",<br />
+                "bio": "Hi, I am Shakti. I am pursuing Masters in Computer Science at Northeastern University. I have keen interest in developing websites and working on latest web technologies. I have worked on Java, Spring Hibernate technologies along with jquery and Backbone.js. In the web development course I want to further my knowledge on MEAN stack."<br/>                },<br />
+                ]<br />
+                });
+
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week5/SearchStudent.html">HTML Source Code</a><br />
+            <a href="../../fileview/Default.aspx?~/Experiments/Week5/SearchStudent.js">Javascript Source Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=KCTKd5ZmXMQ">Youtube Video</a><br />
+        <a href="https://www.w3schools.com">W3Schools</a>
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+        </div>
+</body>
+</html>

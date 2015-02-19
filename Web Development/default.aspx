@@ -1,7 +1,10 @@
 ﻿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="shortcut icon" href="/images/VS.png" type="image/png">
     <title>Vikas's Corner</title>
+
     <link rel="stylesheet" href="HomePage.css" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body class="body">
