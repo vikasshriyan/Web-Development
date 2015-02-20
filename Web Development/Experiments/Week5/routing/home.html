@@ -1,0 +1,145 @@
+﻿
+<br/><h2>Search Movies</h2>
+<div class="input-group">
+    <input type="text" ng-model="searchByTitle" class="form-control" placeholder="Search for your favorite movies">
+    <span class="input-group-btn">
+        <button ng-click="searchMovies()" class="btn btn-default" type="button">Go!</button>
+    </span>
+</div>
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Rating</th>
+            <th>Plot</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="movie in movies">
+            <td>{{movie.title}}</td>
+            <td>{{movie.year}}</td>
+            <td>{{movie.rating}}</td>
+            <td>
+                <img class="poster" ng-src="{{movie.urlPoster}}" width="50" />
+                {{movie.plot}}
+            </td>
+            <td>
+                <button ng-click="removeMovie(movie)" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button><br />
+                <button ng-click="addToFavorites(movie)" class="btn btn-info">
+                    <span class="glyphicon glyphicon-star"></span>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <h3><u>About the Experiment</u></h3>
+    <p>
+        AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.<br />
+        You can download the AngularJS from <a href="https://angularjs.org/">here</a>.<br />
+        In this experiment, I've used the Routing concept in Angular JS and used to create a Movie library which contains a home page and a profile page.
+    The routing concept is used in single-page applications widely, and it is used when the user wants to display different areas of the HTML page in one single HTML page
+    without the other pages reloading. Here, I've created a home page where the user can search for the movies and add their favorite movies.
+    When the user clicks on the profile tab it will show his/her favorite movies.
+    </p><hr />
+    <div>
+        <h3><u>Code Snippet</u></h3>
+        <p>
+        In this experiment, I've created two js files, one for the controllers and the other for the Movie service.
+            In the controller JS, I've initially loaded the AngularJS module using <code>.module</code> function in the js file and linking it using <code>ng-app</code> in the HTML file.
+           I've also added the <code>ng-Route</code> module which will depend on my main module. 
+        Using the <code>app</code> namespace, I've used the <code>config</code> function for the routing to work.
+        When the user clicks on home, the <code>routeProvider</code> will route to the pages depending on the user clicking on the tab.
+        I've then initialized two controllers <code>HomeCtrl</code> and <code>ProfileCtrl</code> for the home controller and the profile controller.
+        The <code>HomeCtrl</code> contains the <code>searchMovies</code> and <code>addToFavories</code> functions for adding movies to the list and favorites.
+        The <code>Profilectrl</code> contains the getFavorites functionality.
+        The Movie Service file contains the <code>factory</code> function to initialize a service.
+        This service contains the functionality of searching movies, add to favorites list and fetching the favorites list.
+           
+        </p><br />
+        <code>
+            <u>Controller JS Code</u><br />
+            var app = angular.module("movieApp", ['ngRoute']);<br />
+
+            app.config(['$routeProvider',<br />
+            function ($routeProvider) {<br />
+            $routeProvider.<br />
+            when('/home', {<br />
+            templateUrl: 'routing/home.html',<br />
+            controller: 'HomeCtrl'<br />
+            }).<br />
+            when('/profile', {<br />
+            templateUrl: 'routing/profile.html',<br />
+            controller: 'ProfileCtrl'<br />
+            }).<br />
+            otherwise({<br />
+            redirectTo: '/home'<br />
+            });<br />
+            }]);<br />
+
+            app.controller("HomeCtrl", function ($scope, MovieService) {<br />
+            $scope.searchMovies = function () {<br />
+            MovieService.searchMovies($scope.searchByTitle, function(response){<br />
+            $scope.movies = response;<br />
+            });<br />
+            }<br />
+
+            $scope.addToFavorites = function(movie)<br />
+            {<br />
+            MovieService.addToFavorites(movie);<br />
+            }<br />
+            });<br />
+
+            app.controller("ProfileCtrl", function ($scope, MovieService) {<br />
+            var favorites = MovieService.getFavorites();<br />
+            console.log(favorites);<br />
+            $scope.favoriteMovies = favorites;<br />
+            });<br /><br />
+
+            <u>MovieService JS code snippet</u><br/><br/>
+            app.factory('MovieService', function MovieService($http) {<br />
+            var favoriteMovies = [];<br />
+            var searchMovies = function (title, callback) {<br />
+            $http.jsonp("http://www.myapifilms.com/imdb?title=" + title + 
+            "&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=5&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0
+            &actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N&callback=JSON_CALLBACK")<br />
+            .success(callback);<br />
+            }<br />
+
+            var addToFavorites = function (movie) {<br />
+            favoriteMovies.push(movie);<br />
+            }<br />
+
+            var getFavorites = function ()<br />
+            {<br />
+            return favoriteMovies;<br />
+            }<br />
+
+            return {<br />
+            searchMovies: searchMovies,<br />
+            addToFavorites: addToFavorites,<br />
+            getFavorites: getFavorites<br />
+            }<br />
+            });
+        </code>
+        <hr />
+    </div>
+    <h3>View Source</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/Experiments/Week5/MovieLibrary-Routing.html">HTML Source Code</a><br />
+        <a href="../../fileview/Default.aspx?~/Experiments/Week5/MovieLibrary-Routing.js">Javascript Source Code (Controllers)</a><br />
+        <a href="../../fileview/Default.aspx?~/Experiments/Week5/MovieService.js">Javascript Source Code (Movie Service)</a><br />
+        <a href="../../fileview/Default.aspx?~/Experiments/Week5/MovieLibrary.css">CSS Source Code</a>
+    </div>
+    <hr />
+    <h3>References</h3>
+    <a href="https://www.youtube.com/watch?v=jelXe-t2MPQ">Youtube Video</a><br />
+    <a href="https://www.w3schools.com">W3Schools</a><br />
+    <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+
+</div>

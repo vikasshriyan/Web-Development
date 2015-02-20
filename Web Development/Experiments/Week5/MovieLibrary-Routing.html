@@ -1,0 +1,27 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Simple Movie Routing</title>
+    <script src="../Week4/AngularJS/angular.min.js"></script>
+    <script src="angular-route.min.js"></script>
+
+     <script src="MovieLibrary-Routing.js"></script>  
+    <script src="MovieService.js"></script>
+    <link rel="stylesheet" href="MovieLibrary.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body ng-app="movieApp">
+   
+    <div class="container">
+        <h1>Movie Library using Routing</h1>
+        <hr/>
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#/home">Home</a></li>
+                    <li role="presentation"><a href="#/profile">Profile</a></li>
+                </ul>
+            </nav>
+        <div ng-view>
+        </div>
+    </div>
+</body>
+</html>
