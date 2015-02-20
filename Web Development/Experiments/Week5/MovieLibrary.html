@@ -1,0 +1,165 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Simple Movie Library</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+    <script src="MovieLibrary.js"></script>
+    <link rel="stylesheet" href="MovieLibrary.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body ng-app="movieApp">
+    <div ng-controller="movieController" class="container">
+        <h1>Simple Movie Library</h1>
+        <hr/>
+
+        <h2>Details</h2>
+
+        <h3>{{details.title}}</h3>
+
+        <h2>Favorite Movies</h2>
+
+        <table class="table table-bordered">
+            <tbody>
+                <tr ng-repeat="movie in favoriteMovies">
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.year}}</td>
+                    <td>{{movie.rating}}</td>
+                    <td>
+                        <img class="poster" ng-src="{{movie.urlPoster}}" width="50" />
+                        {{movie.plot}}
+                    </td>
+                    <td>
+                        <button ng-click="removeFavoriteMovie(movie)" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                        <button ng-click="detailsMovie(movie)" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Search Movies</h2>
+        <div class="input-group">
+            <input type="text" ng-model="searchByTitle" class="form-control" placeholder="Search for your favorite movies">
+            <span class="input-group-btn">
+                <button ng-click="searchMovies()" class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div>
+        <br/>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Rating</th>
+                    <th>Plot</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movie in movies">
+                    <td>{{movie.title}}</td>
+                    <td>{{movie.year}}</td>
+                    <td>{{movie.rating}}</td>
+                    <td>
+                        <img class="poster" ng-src="{{movie.urlPoster}}" width="50" />
+                        {{movie.plot}}
+                    </td>
+                    <td>
+                        <button ng-click="removeMovie(movie)" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button><br />
+                        <button ng-click="addToFavorites(movie)" class="btn btn-info">
+                            <span class="glyphicon glyphicon-star"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.<br />
+            You can download the AngularJS from <a href="https://angularjs.org/">here</a>.<br />
+            In this experiment, I've made a simple Movie library referring to my last week's experiment of Actor's details.
+            In this experiment, I've added few more functionalities besides searching for tthe movies.
+            The user can add a movie to it's favorite list, delete the movie from it's favorite list and also delete it from the search list. 
+
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                Here, I've initially loaded the AngularJS module using <code>.module</code> function in the js file and linking it using <code>ng-app</code> in the HTML file.
+                Using the <code>app</code> namespace and the <code>controller</code> function, linking the <code>ng-controller</code> movieController in the HTML page, I then declare a function with <code>$scope</code> and <code>$http</code>
+                parameter.  
+                I've added the <code>searchMovies</code> functionality which basically fetches me the movies based on their "title" as objects in JSONP format.
+                The <code>addMovie</code> functionality is used to display the searched movies.
+                <code>addToFavorites</code> functionality is used to add a movie to the favorites from the search list.
+                <code>removeMovie</code> is used to remove the movie from the list and the <code>removeFavoriteMovie</code> is udes to remove a movie from the favorite list
+                using the <code>splice</code> function and specifying the current index and number of items to be deleted i.e 1.
+            </p><br />
+            <code>
+                <u>Javascript Code</u><br />
+                var app = angular.module("MoviesApp", []); // load the angular module<br />
+
+                app.controller("MovieController", function ($scope, $http) { // load the controller using app namespace <br />
+
+                $scope.detailsMovie = function (movie) {<br />
+                $http.jsonp("http://www.myapifilms.com/imdb?format=JSONP&idIMDB=" + movie.idIMDB + "&callback=JSON_CALLBACK")<br />
+                .success(function (movie) {<br />
+                $scope.details = movie;<br />
+                });<br />
+                }<br />
+
+                $scope.favoriteMovies = [];<br />
+
+                $scope.addToFavorites = function (movie) { // add movie to the favorite list<br />
+                $scope.favoriteMovies.push(movie);<br />
+                }<br />
+
+                $scope.removeFavoriteMovie = function (movie) { // remove movie from favorite list<br />
+                var index = $scope.favoriteMovies.indexOf(movie);<br />
+                $scope.favoriteMovies.splice(index, 1);<br />
+                }<br />
+
+                $scope.searchMovies = function () {<br />
+                var title = $scope.searchByTitle;<br />
+                $http.jsonp("http://www.myapifilms.com/imdb?title=" + title + 
+                "&format=JSONP&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=N&exactFilter=0&limit=5&lang=en-us&actors=N&biography=0&trailer=0&uniqueName=0&filmography=0&bornDied=0&starSign=0&actorActress=0
+                &actorTrivia=0&movieTrivia=0&awards=0&moviePhotos=N&movieVideos=N&callback=JSON_CALLBACK").success(function (response) {<br />
+                $scope.movies = response;<br />
+                })<br />
+                }<br />
+
+                $scope.addMovie = function () { // display the list of movies<br />
+                var newMovie = {<br />
+                title: $scope.movie.title,<br />
+                rating: $scope.movie.rating,<br />
+                year: $scope.movie.year,<br />
+                plot: $scope.movie.plot<br />
+                };<br />
+                $scope.movies.push(newMovie);<br />
+                }<br />
+
+                $scope.removeMovie = function (movie) { // remove the movie from the list<br />
+                var index = $scope.movies.indexOf(movie);<br />
+                $scope.movies.splice(index, 1);<br />
+                }<br />
+                });
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week5/MovieLibrary.html">HTML Source Code</a><br />
+            <a href="../../fileview/Default.aspx?~/Experiments/Week5/MovieLibrary.js">Javascript Source Code</a><br />
+            <a href="../../fileview/Default.aspx?~/Experiments/Week5/MovieLibrary.css">CSS Source Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=KCTKd5ZmXMQ">Youtube Video</a><br />
+        <a href="https://www.w3schools.com">W3Schools</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+    </div>
+</body>
+</html>
