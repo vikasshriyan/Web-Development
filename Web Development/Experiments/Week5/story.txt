@@ -3,6 +3,7 @@ SearchStudent.html								       AngularJS(Dynamic Search)
 Animation.html								           AngularJS(Animation)
 MovieLibrary.html								       AngularJS(Movie Library)
 MovieLibrary-Routing.html							   AngularJS(Movie Library using Routing)
+PiazzaDemo.html							               AngularJS(Piazza Demo site using Routing)
 
 
 

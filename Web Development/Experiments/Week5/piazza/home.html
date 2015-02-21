@@ -1,0 +1,180 @@
+﻿
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Welcome to Piazza!</h1>
+            <p>This is a demo site for piazza. Stay tuned for more updates!.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.<br />
+            You can download the AngularJS from <a href="https://angularjs.org/">here</a>.<br />
+        In this experiment, I've used the concept of Routing in AngularJS to create a course management website e.g Piazza. The user can view the home and profile pages from a single HTML page without the pages actually getting reloaded.<br/>
+            <b>
+                The user can login as a faculty member using the following credentials
+                username: shakti, password :shakti.
+            </b> <br/> The faculty member can then view his profile and the list of courses, he is teaching and authoring.<br/>
+            <b> The user can also login as a student using the following credentials username:karthik, password:karthik.</b><br/>
+        The student can then view his profile and the registered courses.
+           
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                In this experiment, I've created three js files, one for the controllers and the other two for the UserService and CourseService.
+                In the controller JS, I've initially loaded the AngularJS module using <code>.module</code> function in the js file and linking it using <code>ng-app</code> in the HTML file.
+                I've also added the <code>ng-Route</code> module which will depend on my main module.
+                Using the <code>app</code> namespace, I've used the <code>config</code> function for the routing to work.
+                When the user clicks on home, the <code>routeProvider</code> will route to the pages depending on the user clicking on the tab.
+                I've then initialized two controllers, navController and ProfileCtrl profile controller.
+            The <code>navController</code> contains the login() and logout() functionality
+                The <code>Profilectrl</code> consist what information has to be displayed depending on whether the profile is of a faculty member or a student.
+                The <code>UserService</code> file contains the <code>factory</code> function to initialize a service.
+                This service contains some users hard-coded with their usernames and password and the functionality of logging in, logging out and fetching the currentuser.
+                The <code>CourseService</code> file contains some courses hard-coded and the functionality of adding a course and fetching the courses by indices.
+
+            </p><br />
+            <code>
+                <u>Controller JS Code</u><br />
+                var app = angular.module("piazza", ['ngRoute'])<br />
+
+                app.config(['$routeProvider',<br />
+                function ($routeProvider) {<br />
+                $routeProvider.<br />
+                when('/home', {<br />
+                templateUrl: 'piazza/home.html',<br />
+                }).<br />
+                when('/profile/:username', {<br />
+                templateUrl: 'piazza/profile.html',<br />
+                controller: 'ProfileCtrl'<br />
+                }).<br />
+                otherwise({<br />
+                redirectTo: '/home'<br />
+                });<br />
+                }]);<br />
+
+                app.controller("navController", function ($scope, UserService) {<br />
+                $scope.currentUser = null;<br />
+                $scope.logout = function()<br />
+                {<br />
+                $scope.currentUser = null;<br />
+                UserService.logout();<br />
+                $scope.username = null;<br />
+                $scope.password = null;<br />
+                }<br />
+                $scope.login = function () {<br />
+                var username = $scope.username;<br />
+                var password = $scope.password;<br />
+                $scope.currentUser =  UserService.login(username, password);<br />
+                }<br />
+                });<br />
+
+                app.controller("ProfileCtrl", function ($scope, UserService, $routeParams, CourseService) {<br />
+                var username = $routeParams.username;<br />
+                $scope.username = username;<br />
+                $scope.currentUser = UserService.getCurrentUser();<br />
+                if($scope.currentUser.role=="faculty")<br />
+                {<br />
+                $scope.authoring = CourseService.getCourseByIndices($scope.currentUser.authoring);<br />
+                $scope.teaching = CourseService.getCourseByIndices($scope.currentUser.teaching);<br />
+
+                }
+                <br />
+                if ($scope.currentUser.role == "student") {<br />
+                $scope.registered = CourseService.getCourseByIndices($scope.currentUser.registered);<br />
+
+                }<br />
+                });<br /><br />
+
+                <u>UserService JS code snippet</u><br /><br />
+                app.factory("UserService", function () {<br />
+                var currentUser = null;<br />
+                var users = [<br />
+                { username: "vikas", password: "vikas", role: "admin" },<br />
+                { username: "shakti", password: "shakti", role: "faculty", authoring: [1, 2, 3], teaching: [3, 4, 6] },<br />
+                { username: "karthik", password: "karthik", role: "student", registered: [2, 3, 4] }<br />
+                ];<br />
+
+                var logout = function () {<br />
+                currentUser = null;<br />
+                }<br />
+                var login = function (username, password) {<br />
+                for (var u in users) {<br />
+                if (users[u].username == username && users[u].password == password) {<br />
+                currentUser = users[u];<br />
+                return users[u];<br />
+                }<br />
+                }<br />
+                return null;<br />
+                };<br />
+
+                var getCurrentUser = function () {<br />
+                return currentUser;<br />
+                }<br />
+
+                return {<br />
+                login: login,<br />
+                logout: logout,<br />
+                getCurrentUser: getCurrentUser<br />
+                }<br />
+                });<br /><br />
+
+                <u>CourseService JS code snippet</u><br /><br />
+                app.factory("CourseService", function () {<br />
+                var courses = [<br />
+
+                { title: "PDP" },<br />
+                { title: "Network Security" },<br />
+                { title: "Artificial Intelligence" },<br />
+                { title: "Web Development" },<br />
+                { title: "Algorithms" },<br />
+                { title: "Information Retrieval" },<br />
+                { title: "Database" },<br />
+                { title: "Computer Systems" }<br />
+                ];<br />
+
+                var addCourse = function (course) {<br />
+                courses.push(course);<br />
+                }
+
+                var getCourseByIndex = function (index) {<br />
+                return courses[index];<br />
+                }<br />
+
+                var getCourseByIndices = function (indices) {<br />
+                var responseCourses = [];<br />
+                for (var i in indices) {<br />
+                var course = courses[indices[i]];<br />
+                responseCourses.push(course);<br />
+                }<br />
+                return responseCourses;<br />
+                }<br />
+
+                return {<br />
+                addCourse: addCourse,<br />
+                getCourseByIndex: getCourseByIndex,<br />
+                getCourseByIndices: getCourseByIndices<br />
+                <br />
+                });<br />
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week5/PiazzaDemo.html">HTML Source Code</a><br />
+            <a href="../../fileview/Default.aspx?~/Experiments/Week5/PiazzaDemo.js">Javascript Source Code (Controllers)</a><br />
+            <a href="../../fileview/Default.aspx?~/Experiments/Week5/PiazzaDemo-CourseService.js">Javascript Source Code (Course Service)</a><br />
+            <a href="../../fileview/Default.aspx?~/Experiments/Week5/PiazzaDemo-UserService.js">Javascript Source Code (User Service)</a><br />
+            <a href="../../fileview/Default.aspx?~/Experiments/Week5/PiazzaDemo.css">CSS Source Code</a>
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=PlAxG8R_zXI">Youtube Video</a><br />
+        <a href="https://www.w3schools.com">W3Schools</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+
+    </div>
