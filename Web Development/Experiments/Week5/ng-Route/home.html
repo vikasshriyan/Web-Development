@@ -1,0 +1,66 @@
+﻿<div>
+    <h2>Welcome to the Home page</h2>
+    
+    <br/>
+    <br/>
+    <h3><u>About the Experiment</u></h3>
+    <p>
+        AngularJS, commonly referred to as Angular, is an open-source web application framework maintained by Google and a community of individual developers and corporations to address many of the challenges encountered in developing single-page applications. Its goal is to simplify both development and testing of such applications by providing a framework for client-side model–view–controller (MVC) architecture, along with components commonly used in rich internet applications.<br />
+        You can download the AngularJS from <a href="https://angularjs.org/">here</a>.<br />
+        In this experiment, I've started with the basic Routing concept of Angular JS.
+        When the user clicks on the various tabs on the home page, it navigates to different pages such as about, contact and profile, without the the pages actually getiing reloaded.
+    The main advantage of using routing is that you can display different areas of a single HTML page in various pages without the pages actually getting reloaded.
+
+    </p><hr />
+    <div>
+        <h3><u>Code Snippet</u></h3>
+        <p>
+        Initially, I've loaded the <code>ng-app</code> module from my HTML and linked it and I've also loaded the<code>ngRoute</code> module for the routing to work.
+        I've then initialized the <code>config</code> function and used the <code>routeProvider</code> for the routing to different pages.
+        When the user clicks on the home tab, the <code>routeProvider</code> checks for the <code>/home</code> in the HTML and routes the user to the Home page in the given URL.
+        I then use the same logic to route to different pages in the HTML.
+
+        </p><br />
+        <code>
+            <u>Javascript Code</u><br />
+            var app = angular.module("myApp", ['ngRoute']); // load the main and ngRoute module.<br />
+
+            app.config(['$routeProvider', // routing purpose<br />
+            function ($routeProvider) {<br />
+            $routeProvider.<br />
+            when('/home', {<br />
+            templateUrl: 'ng-Route/home.html',<br />
+
+            }).<br />
+            when('/about', {<br />
+            templateUrl: 'ng-Route/about.html<br />
+
+            })<br />
+            .when('/contact', {<br />
+            templateUrl: 'ng-Route/contact.html',<br />
+
+            })<br />
+            .when('/profile', {<br />
+            templateUrl: 'ng-Route/profile.html',<br />
+
+            }).<br />
+            otherwise({<br />
+            redirectTo: '/home'<br />
+            });<br />
+            }]);<br />
+
+        </code>
+        <hr />
+    </div>
+    <h3>View Source</h3>
+    <div>
+        <a href="../../fileview/Default.aspx?~/Experiments/Week5/Routing-Intro.html">HTML Source Code</a><br />
+        <a href="../../fileview/Default.aspx?~/Experiments/Week5/Routing-Intro.js">Javascript Source Code</a><br />
+    </div>
+    <hr />
+    <h3>References</h3>
+    <a href="https://www.youtube.com/watch?v=jelXe-t2MPQ">Youtube Video</a><br />
+    <a href="https://www.w3schools.com">W3Schools</a><br />
+    <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+
+</div>
