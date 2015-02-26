@@ -1,5 +1,6 @@
 ﻿../../story/whatisnext.htm?../Experiments/Week6/       What is Next?
 NodeJS-Intro.html									   Introduction to NodeJS
+NodeJS-JSON.html									   Static JSON responses using NodeJS
 
 
 

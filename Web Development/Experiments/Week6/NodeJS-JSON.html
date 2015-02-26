@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>NodeJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+   <div class="container">
+       <h2>JSON Responses using NodeJS</h2><hr/>
+       <img class="img-responsive"src="../../images/JSON.PNG" /><br/>
+       <img class="img-responsive" src="../../images/JSON-1.PNG" /><br/>
+       <img class="img-responsive" src="../../images/JSON-2.PNG" /><br/>
+       <img class="img-responsive" src="../../images/JSON-3.PNG" /><hr />
+       <h3><u>About the Experiment</u></h3>
+       <p>
+           Node.js is an open source, cross-platform runtime environment for server-side and networking applications.
+           Node.js applications are written in JavaScript, and can be run within the Node.js runtime on OS X, Microsoft Windows, Linux and FreeBSD.
+           Node.js provides an event-driven architecture and a non-blocking I/O API that optimizes an application's throughput and scalability.
+           These technologies are commonly used for real-time applications.
+           Node.js uses the Google V8 JavaScript engine to execute code, and a large percentage of the basic modules are written in JavaScript.
+           Node.js contains a built-in library to allow applications to act as a Web server without software such as Apache HTTP Server or IIS.
+           You can download NodeJS from <a href="http://nodejs.org/">here</a>.
+           JSON(JavaScript Object Notation) is the open standard format uses human readable text to transmit data object consisting of attribute value pair. It will return ordered list of values.
+           
+           In this experiment, I've build on experiment 1 to create JSON responses from the server to the client.
+           Here the server checks for a particular url and based on that it sends a response in JSON format to the client.
+           Here an array of JSON objects is hard-coded. I'm using different <code>get</code> functions to send a respons to the client based on the url received.
+
+       </p><hr />
+       <div>
+           <h3><u>Code Snippet</u></h3>
+           <p>
+               Express is the framework used here which is declared as required, require('express') will import the require library to run the application using Express framework.<br />
+               Next we create an instance and using that instance <code>app.get</code> is supported http method in node.js, app.get will send a response to the client .
+               Here in the code, I've hard-coded an array developer which is an array oof JSON objects.
+               Using the <code>get</code> function, when the user hits "/developer", I use a <code>res.json</code> to send an array(developer) of JSON objects 
+               Now to access a particular JSON object in the array, I create a <code>get</code> function which will take the 'index' from the client using
+               <code>req.params</code>. Using the given index, I send a response using <code>res.json</code> and the index which has the particular JSON object.
+               I use the same logic to access the different fields in the JSON object.
+           </p><br />
+           <code>
+               <u>Javascript Code</u><br />
+               var express = require('express');<br />
+               var app = express(); //create an instance<br />
+               var developer = [  // create an array of JSON objects<br />
+               { firstName: "Vikas", lastName: "Shriyan", application: [
+               {name:"Network Security"},{name:"Database"},{name:"PowerPoint"}, ] },<br />
+               { firstName: "Karthik", lastName: "Mahaley", application:[] },<br />
+               { firstName: "Shakti", lastName: "Prasad", application: [] },<br />
+               { firstName: "Bob", lastName: "Marley", application: [] },<br />
+               { firstName: "Pankaj", lastName: "Tripathi", application: [] },<br />
+               ]<br /><br />
+
+               app.get("/developer", function (req, res) { // get function to get a response from the server<br />
+               res.json(developer);// send the whole developer array.<br />
+               });<br /><br />
+
+               app.get("/developer/:index", function (req, res) { // to access a particular developer<br />
+               var idx = req.params['index']; //. notation (req.params.index), fetch the index from the url<br />
+               res.json(developer[idx]); // send that particular array using the index.<br />
+               });<br /><br />
+
+               app.get("/developer/:index/application", function (req, res) { // to access a particular field in JSON object<br />
+               var idx = req.params['index']; //. notation (req.params.index), fetch the index from the url<br />
+               res.json(developer[idx].application); // send that particular field of the JSON object<br />
+               });<br /><br />
+
+               app.get("/developer/:index/application/:apindex", function (req, res) { // to access the value of a field in a JSON abject<br />
+               var idx = req.params['index']; //. notation (req.params.index), fetch the developer's index from the url<br />
+               var apidx = req.params['apindex']; // fetch the application field's index from the url<br />
+               res.json(developer[idx].application[apidx]); // send the value using . notation<br />
+               });<br />
+           </code>
+           <hr />
+       </div>
+       <h3>View Source</h3>
+       <div>
+           <a href="../../fileview/Default.aspx?~/Experiments/Week6/NodeJS-JSON.html">HTML Source Code</a><br />
+       </div>
+       <hr />
+       <h3>References</h3>
+       <a href="https://www.youtube.com/watch?v=Lnd_uSEpCdo">Youtube Video</a><br />
+       <a href="https://www.w3schools.com">W3Schools</a><br />
+       <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>  
+   </div>
+</body>
+</html>
