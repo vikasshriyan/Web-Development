@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>NodeJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Open custom HTML from server</h2><hr/>
+        <h4>Click the following to redirect to the default index page.</h4>
+       <h5>Openshift URL:</h5> <a href="http://nodejs-cs5610sp15.rhcloud.com/">Custom HTML page</a>
+        <hr/>
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            Node.js is an open source, cross-platform runtime environment for server-side and networking applications.
+            Node.js applications are written in JavaScript, and can be run within the Node.js runtime on OS X, Microsoft Windows, Linux and FreeBSD.
+            Node.js provides an event-driven architecture and a non-blocking I/O API that optimizes an application's throughput and scalability.
+            These technologies are commonly used for real-time applications.
+            Node.js uses the Google V8 JavaScript engine to execute code, and a large percentage of the basic modules are written in JavaScript.
+            Node.js contains a built-in library to allow applications to act as a Web server without software such as Apache HTTP Server or IIS.
+            You can download NodeJS from <a href="http://nodejs.org/">here</a>.<br/>
+            This experiment sends custom page from server to client. 
+            The default index page will be the output. Check the url that shows the change.
+
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                The following JS code is written on the server-side.
+                Express is the framework used here which is declared as required, require('express') will import the require library to run the application using Express framework.
+                We then use the <code>app</code> namespace to direct the response to the default "index" html page in the public directory.
+            </p><br />
+            <code>
+                <u>Javascript Code</u><br />
+                var express = require('express');<br />
+                var app = express(); //create an instance<br />
+                app.use(express.static(__dirname + '/public'));<br/>
+               <br />
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week6/NodeJS-HTML.html">HTML Source Code</a><br />
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=Lnd_uSEpCdo">Youtube Video</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>  
+    </div>
+</body>
+</html>

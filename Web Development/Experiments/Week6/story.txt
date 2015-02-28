@@ -1,6 +1,10 @@
 ﻿../../story/whatisnext.htm?../Experiments/Week6/       What is Next?
 NodeJS-Intro.html									   Introduction to NodeJS
+NodeJs-ReqParam.html                                   Echo back the parameter passed in request
 NodeJS-JSON.html									   Static JSON responses using NodeJS
+NodeJS-HTML.html									   Open custom HTML from Server
+NOdeJS-Form.html									   Form using NodeJS 
+
 
 
 

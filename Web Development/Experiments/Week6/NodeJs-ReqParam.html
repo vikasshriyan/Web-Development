@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>NodeJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>NodeJS Request Parameter</h2><hr />
+        <h4>Click here to redirect to the server</h4>
+       <p> <a href="http://nodejs-cs5610sp15.rhcloud.com/paramSend/HELLO">http://nodejs-cs5610sp15.rhcloud.com/paramSend/HELLO</a><br/>
+           The response echos back the parameter passed in URL.
+        </p>
+        <hr />
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            Node.js is an open source, cross-platform runtime environment for server-side and networking applications.
+            Node.js applications are written in JavaScript, and can be run within the Node.js runtime on OS X, Microsoft Windows, Linux and FreeBSD.
+            Node.js provides an event-driven architecture and a non-blocking I/O API that optimizes an application's throughput and scalability.
+            These technologies are commonly used for real-time applications.
+            Node.js uses the Google V8 JavaScript engine to execute code, and a large percentage of the basic modules are written in JavaScript.
+            Node.js contains a built-in library to allow applications to act as a Web server without software such as Apache HTTP Server or IIS.
+            You can download NodeJS from <a href="http://nodejs.org/">here</a>.<br />
+            In continuation from my previous experiment where I hard-coded the URL and sent a particular message based on the URL, here the user can dynamically change the URL and can get a message depending on the parameter set.
+
+            <h3>Steps to follow:</h3>
+            <ul>
+                <li>Click on the above URL</li>OR
+                <li>Copy the URL, replace HELLO with your own parameter and loads the URL.</li>
+            </ul>
+
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                Express is the framework used here which is declared as required, require('express') will import the require library to run the application using Express framework.
+                I then use the app namespace to initialzer a <code>get</code> method. This method fetches the parameter from the url which is requested for using <code>req.params.param</code> and displays that parameter.
+            </p><br />
+            <code>
+                <u>Server-side Javascript Code</u><br />
+                var express = require('express');<br />
+                var app = express(); //create an instance<br/>
+                
+                 app.get('/paramSend/:param', function(req,res){<br/>
+                var param = req.params.param;<br />
+                res.send(param);<br />
+                });<br />
+
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week6/NodeJs-ReqParam.html">HTML Source Code</a><br />
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=Lnd_uSEpCdo">Youtube Video</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+    </div>
+</body>
+</html>

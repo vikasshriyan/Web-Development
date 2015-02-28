@@ -7,10 +7,14 @@
 <body>
    <div class="container">
        <h2>JSON Responses using NodeJS</h2><hr/>
+       <h4>Click <a href="http://nodejs-cs5610sp15.rhcloud.com/developer">here</a> to redirect to the server that is hosted to check the output page.</h4>
        <img class="img-responsive"src="../../images/JSON.PNG" /><br/>
+       <h4>Click <a href="http://nodejs-cs5610sp15.rhcloud.com/developer/0">here</a> to redirect to the server that is hosted to check the output page.</h4>
        <img class="img-responsive" src="../../images/JSON-1.PNG" /><br/>
+       <h4>Click <a href="http://nodejs-cs5610sp15.rhcloud.com/developer/0/application">here</a> to redirect to the server that is hosted to check the output page.</h4>
        <img class="img-responsive" src="../../images/JSON-2.PNG" /><br/>
-       <img class="img-responsive" src="../../images/JSON-3.PNG" /><hr />
+       <h4>Click <a href="http://nodejs-cs5610sp15.rhcloud.com/developer/0/application/2">here</a> to redirect to the server that is hosted to check the output page.</h4>
+        <img class="img-responsive" src="../../images/JSON-3.PNG" /><hr />
        <h3><u>About the Experiment</u></h3>
        <p>
            Node.js is an open source, cross-platform runtime environment for server-side and networking applications.
@@ -33,7 +37,7 @@
                Express is the framework used here which is declared as required, require('express') will import the require library to run the application using Express framework.<br />
                Next we create an instance and using that instance <code>app.get</code> is supported http method in node.js, app.get will send a response to the client .
                Here in the code, I've hard-coded an array developer which is an array oof JSON objects.
-               Using the <code>get</code> function, when the user hits "/developer", I use a <code>res.json</code> to send an array(developer) of JSON objects 
+               Using the <code>get</code> function, when the user hits "/developer", I use a <code>res.json</code> to send an array(developer) of JSON objects. 
                Now to access a particular JSON object in the array, I create a <code>get</code> function which will take the 'index' from the client using
                <code>req.params</code>. Using the given index, I send a response using <code>res.json</code> and the index which has the particular JSON object.
                I use the same logic to access the different fields in the JSON object.

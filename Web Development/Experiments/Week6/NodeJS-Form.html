@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>NodeJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Form using NodeJS</h2><hr/>
+        <h4>Click here to redirect to the server</h4>
+        
+       <h5>Openshift URL:</h5> <a href="http://nodejs-cs5610sp15.rhcloud.com/">Index Page</a>
+        <hr/>
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            Node.js is an open source, cross-platform runtime environment for server-side and networking applications.
+            Node.js applications are written in JavaScript, and can be run within the Node.js runtime on OS X, Microsoft Windows, Linux and FreeBSD.
+            Node.js provides an event-driven architecture and a non-blocking I/O API that optimizes an application's throughput and scalability.
+            These technologies are commonly used for real-time applications.
+            Node.js uses the Google V8 JavaScript engine to execute code, and a large percentage of the basic modules are written in JavaScript.
+            Node.js contains a built-in library to allow applications to act as a Web server without software such as Apache HTTP Server or IIS.
+            You can download NodeJS from <a href="http://nodejs.org/">here</a>.<br/>
+            This experiment is in continuation with the previous experiment of returning the "index" page to the user.
+            I've created a simple form using NodeJS which can add, delete, edit particular fields. This page is persisted on the server
+            meaning that if the page is refereshed the changes are saved and you can view it just by refreshing the page.
+
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p> Server-Side Code:<br/>
+                Express is the framework used here which is declared as required, require('express') will import the require library to run the application using Express framework.
+                We then use the <code>app</code> namespace to direct the response to the default "index" html page in the public directory.<br/>
+                Client-Side Code:<br/>
+               In the client side, I've used the angular technology by initializing the <code>angular</code> module and linking it with my <code>ng-app</code> from the HTML.
+               I use <code>controller</code> namespace to initialize the controller and use <code>DeveloperController</code> initialized in the HTML page.
+               I use the <code>get</code> function to fetch the data from the server, <code>delete</code> function to delete a data on the client-side.
+               I use the <code>post</code> function to add data onto the client and <code>put</code> method to update a particular field in the client-side.
+               
+            </p><br />
+            <code>
+                <u>Client-Side Javascript Code</u><br />
+                var app = angular.module("DeveloperApp", []); // load the angular module<br />
+                app.controller("DeveloperController", function ($scope, $http) {// initialize the controller using the app namespace<br />
+               
+                var developer = [// initialize the array of JSON abjects<br/>
+                {
+                firstName: "Vikas", lastName: "Shriyan", application: [
+                { name: "Network Security" }, { name: "Database" }, { name: "PowerPoint" }, ], specialization:"Java", city:"Boston"
+                },<br />
+                { firstName: "Karthik", lastName: "Mahaley", application: [], specialization: "MongoDB", city: "New York" },<br />
+                { firstName: "Shakti", lastName: "Prasad", application: [], specialization: "PHP", city: "Miami" },<br />
+                { firstName: "Bob", lastName: "Marley", application: [], specialization: "Python", city: "LA" },<br />
+                { firstName: "Pankaj", lastName: "Tripathi", application: [], specialization: "C++", city: "California" }, ]<br />
+
+                
+                 $http.get("/developer") // to fetch data from the server<br />
+                .success(function (response) {<br />
+                $scope.developers = response;<br />
+                });
+                <br />
+                $scope.remove = function (index) {<br />
+                $http.delete("/developer/" + index)// to delete data from the client-side<br />
+                .success(function (response) {<br />
+                $scope.developers = response; // update the list after a row has been deleted<br />
+                });<br />
+                };<br />
+
+                $scope.add = function (developer){ <br />
+                console.log(developer);<br />
+                $http.post("/developer", developer) // to add data onto the client-side<br />
+                .success(function (response) {<br />
+                $scope.developers = response;// update the list after a row has been added<br />
+                });<br />
+                };<br />
+
+                $scope.selectedIndex = null;<br />
+                $scope.select = function (index)<br />
+                {<br />
+                $scope.selectedIndex = index;<br />
+                $scope.developer = $scope.developers[index];<br />
+
+                }<br />
+
+                $scope.update = function (developer) {<br />
+                $http.put("/developer/" + $scope.selectedIndex, developer) // update a particular row<br />
+                .success(function (response) {<br />
+                $scope.developers = response;// update the list after a row has been updated<br />
+                });<br />
+                }<br />
+                });<br /><br />
+                <u>Server-Side JS code</u><br/>
+                var express = require('express');<br />
+                var app = express(); //create an instance<br />
+                app.use(express.static(__dirname + '/public'));
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week6/NodeJS-Form.html">HTML Source Code</a><br />
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=Lnd_uSEpCdo">Youtube Video</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>  
+    </div>
+</body>
+</html>
