@@ -5,4 +5,5 @@
 ../story/index.htm?../Experiments/Week4/story.txt         AJAX, AngularJS, JSONP and Web APIs (Week4)
 ../story/index.htm?../Experiments/Week5/story.txt         AngularJS, JSONP and Web APIs (Week5)
 ../story/index.htm?../Experiments/Week6/story.txt         NodeJS and OpenShift (Week6)
+../story/index.htm?../Experiments/Week7/story.txt         MongoDB and Mongoose (Week7)
 

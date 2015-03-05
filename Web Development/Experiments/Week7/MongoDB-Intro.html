@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MongoDB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>MongoDB-Introduction</h1><hr/>
+        <h3>MongoDB-Insert</h3>
+        <h5>Click <a href="">here</a> to go the server.</h5>
+        <img class="img-responsive"src="../../images/MongoDB(1).PNG" />
+        <h4>Here is the data present in the db under Developer Collection</h4>
+        <img class="img-responsive" src="../../images/MongoDB(2).PNG" /><br />
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            MongoDB is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.
+            Mongoose provides a straight-forward, schema-based solution to modeling your application data and includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+            Mongoose is an elegant way of mongoDB object modelling for nodeJS.
+            You can download MongoDB from <a href="https://www.mongodb.org/">here</a>.
+            You can download Mongoose from <a href="http://mongoosejs.com/index.html">here</a>.<br/>
+            In this experiment, I've started with the basic Insert operation using MongoDB and Mongoose.
+            The output of this will be in JSON format, not parsed and in a HTML page.
+            Here I insert different developer JSON objects and query using it the get function from the URL.
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                Mongoose is the framework needed to connect to the MongoDB for which I use require('mongoose') which will import the required library using Mongoose framework.
+                I then connnec to my local collection 'cs5610' using <code>connect</code>.
+                Express is the framework used here which is declared as required, require('express') will import the required library to run the application using Express framework.<br />
+               I then declare a Developer schema which would contain all the declarations in a schema.
+                 I use the <code>model</code> constructor to compile the schema definition. I then create three different instances of the <code>Developer</code> and 
+                 <code>save</code> it or insert into the db.<br />
+               I then retrieve the data in JSON format using <code>get</code> method. The data can be retrieved using <code>/api/Developer</code> in the URL
+
+            </p><br />
+            <code>
+                <u>Javascript Code</u><br />
+                var mongoose = require('mongoose');<br/>
+                mongoose.connect('mongodb://localhost/cs5610');<br />
+
+                var express = require('express');<br />
+                var app = express();<br />
+
+                var DeveloperSchema = new mongoose.Schema({<br />
+                first: String,<br />
+                last: String,<br />
+                Specialization: String,<br />
+                City: String,<br />
+                }, { collection: "Developer" });<br />
+
+                var Developer = mongoose.model("Developer1", DeveloperSchema);<br />
+
+                var developer1 = new Developer({ first: "Vikas", last: "Shriyan", Specialization: "Java", City: "Boston" });<br />
+                var developer2 = new Developer({ first: "Shakti", last: "Patro", Specialization: "Python", City: "Miami" });<br />
+                var developer3 = new Developer({ first: "Abhishek", last: "Patro", Specialization: "C++", City: "Boston" });<br />
+
+                developer1.save();<br />
+                developer2.save();<br />
+                developer3.save();<br />
+
+                app.get('/api/Developer', function (req, res) {<br/>
+                Developer.find(function (err, data) {<br />
+                res.json(data);<br/>
+                });<br />
+
+                });<br />
+
+                app.listen(3000);
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week7/MongoDB-Intro.html">HTML Source Code</a><br />
+            <a href="">GitHub Repo</a><br />
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=YH5sFprHgl0">Youtube Video</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+    </div>
+</body>
+</html>
