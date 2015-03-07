@@ -84,6 +84,15 @@ app.get('/countDevelopers', function (req, res) {
     });
 });
 
+app.get('/updateDeveloper', function (req, res) {
+    var query = {lastName:'Shriyan'};
+    DeveloperModel.findOneAndUpdate(query, { specialization: 'HTML' }, function (err, data) {
+        res.json(data);
+    });
+      });
+
+ 
+
 //--------------------------------------------------------------------------//
 
 
