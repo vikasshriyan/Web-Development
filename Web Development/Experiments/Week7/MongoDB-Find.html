@@ -5,6 +5,77 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
 </head>
 <body>
+    <div class="container">
+        <h2>MongoDB- Find Operation (Equivalent to SELECT * WHERE "condition")</h2><hr/>
+        <h4>Here I use findById operation to find developers who has the particular ID which is a unique id.</h4>
+        <h5>Click <a href="http://nodejs-cs5610sp15.rhcloud.com/developer/54fa63cd4ec895963e98f56b">here</a> to go to the Openshift server.</h5>
+        <img class="img-responsive" src="../../images/MongoDB(6).PNG" />
+        <h4>Here I use find operation to find developers which have lastname as "Patro"</h4>
+        <h5>Click <a href="http://nodejs-cs5610sp15.rhcloud.com/developer/last/Patro">here</a> to go to the Openshift server.</h5>
+        <img class="img-responsive" src="../../images/MongoDB(3).PNG" />
+        <h4>Here I use find operation to find developers which have City listed as "Boston"</h4>
+        <h5>Click <a href="http://nodejs-cs5610sp15.rhcloud.com/developer/city/Boston">here</a> to go to the Openshift server.</h5>
+        <img class="img-responsive" src="../../images/MongoDB(4).PNG" /><br />
+        <h4>Here I use find operation to find developers which have Specialization listed as "Java"</h4>
+        <h5>Click <a href="http://nodejs-cs5610sp15.rhcloud.com/developer/specialization/Java">here</a> to go to the Openshift server.</h5>
+        <img class="img-responsive" src="../../images/MongoDB(5).PNG" /><br />
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            MongoDB is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.
+            In this experiment, I've continued building on my previous experiment which had a collection of Developer locally in my DB.
+            Here I use some find operations to query the database and retrieve the data. The data which is given back in JSON format which can be seen in the HTML page.
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+                Express is the framework used here which is declared as required, require('express') will import the require library to run the application using Express framework.<br />
+                I use the <code>get</code> method to retrieve data from the database which is stored locally. 
+                I use the <code>findById</code> method to query the database and find a developer with a particular ID.
+                The data can be retrieved in JSON format using <code>res.json</code> by using the URL <code>/developer/"Id"</code>
+                I use the <code>find</code> method to query the database to find different things such as the developers who have listed a particular city or Specialization or have Last name as something.
+                The particular data can be retrieved in JSON format by inserting the <code>field</code> first and the name by which one wants to search in the following format
+                <code>/developer/field/"Name"</code>. For eg. <code>/developer/city/Boston</code> to search developers from Boston.
+            </p><br />
+            <code>
+                <u>Javascript Code</u><br />
+                var express = require('express');<br/>
+                var app = express();<br />
+                app.get('/developer/:id', function (req, res) {<br/>
+                DeveloperModel.findById(req.params.id, function (err, data) {<br />
+                res.json(data);<br />
+                console.log(data);<br />
+                });<br />
+                });<br />
 
+                app.get('/developer/last/:name', function (req, res) {<br />
+                DeveloperModel.find({ lastName: { "$in" : [req.params.name] }} ,function (err, data) {<br />
+                res.json(data);<br />
+                });<br />
+                });<br />
+
+                app.get('/developer/city/:name', function (req, res) {<br />
+                DeveloperModel.find({ city: { "$in": [req.params.name] } }, function (err, data) {<br />
+                res.json(data);<br />
+                });<br />
+                });<br />
+
+                app.get('/developer/Specialization/:name', function (req, res) {<br />
+                DeveloperModel.find({ specialization: { "$in": [req.params.name] } }, function (err, data) {<br />
+                res.json(data);<br />
+                });<br />
+                });
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week7/MongoDB-Find.html">HTML Source Code</a><br />
+            <a href="https://github.com/vikasshriyan/Web-Development/tree/master/Web%20Development/MongoDB">GitHub Repo</a><br />
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=YH5sFprHgl0">Youtube Video</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+    </div>
 </body>
 </html>
