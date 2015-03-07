@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MongoDB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>MongoDB- Simple Form</h2><hr/>
+        <h4>A Simple Form which Performs add, delete and update operation onto the MongoDB server.</h4>
+        <h5>Click <a href="http://nodejs-cs5610sp15.rhcloud.com/">here</a> to go to the Openshift server.</h5>
+        <img class="img-responsive" src="../../images/MongoDB(7).PNG" />
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            MongoDB is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.
+            In this experiment I've created a Simple Form using NodeJS and MongoDB. This experiment is an extension on the previous experiment I made on NodeJS. This experiment makes use of the MongoDB on the server.
+            The details added using the form is stored on the MondoDB Server which is hosted on Openshift.
+            The user can add, delete and edit the data using the form and the would reflect onto the server as well.
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+               The <code>connectionString</code> will check first if it connected to the Openshift MongoDB or the local db.
+               I then declare a schema representation called <code>DeveloperSchema</code> which contains the declarations.
+               I then use <code>model</code> method to create a model of the defined schema. I use the <code>post</code> method to add data onto the server.
+               The data gets added using <code>save()</code> method into the db and <code>find</code> is used to fetch all the data which is on the server.
+               The delete operation is handled by the <code>delete</code> method which deletes the developer by his Id on the db for which I use <code>findById</code> method.
+               On the client side I use the same logic which I used in my previous experiments to add and remove data using <code>add</code> and <code>remove</code> methods
+               respectively.
+            </p><br />
+            <code>
+                <u>Server-side Javascript Code</u><br />
+                var mongoose= require('mongoose');<br/>
+                var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/cs5610';<br/>
+                mongoose.connect(connectionString);<br />
+                var DeveloperSchema = new mongoose.Schema({<br/>
+                firstName: String,<br />
+                lastName: String,<br />
+                specialization: String,<br />
+                city: String,<br />
+                }, { collection: 'developer' });<br />
+                var DeveloperModel = mongoose.model('DeveloperModel', DeveloperSchema);<br />
+                app.post("/developer", function (req, res) {<br />
+                var developer1 = new DeveloperModel(req.body);<br />
+                developer1.save(function (err, doc) {<br />
+                DeveloperModel.find(function (err, data) {<br />
+                res.json(data);<br />
+                });<br />
+                });<br />
+                });<br />
+                app.delete("/developer/:id", function (req, res) {<br />
+                DeveloperModel.findById(req.params.id, function (err, doc) {<br />
+                doc.remove();<br />
+                DeveloperModel.find(function (err, data) {<br />
+                res.json(data);<br />
+                });<br />
+                });<br />
+                });<br /><br/>
+                <u>Client-side Javascript code</u><br/>
+                var app = angular.module("DeveloperApp", []);<br/>
+                app.controller("DeveloperController", function ($scope, $http) {<br />
+                $http.get("/developer")<br />
+                .success(function (response) {<br />
+                $scope.developers = response;<br />
+                });<br />
+                $scope.remove = function (index) {<br />
+                developer = $scope.developers[index];<br />
+                $http.delete("/developer/" + developer._id)<br />
+                .success(function (response) {<br />
+                $scope.developers = response;<br />
+                });<br />
+                };<br />
+                $scope.add = function (developer) {<br />
+                console.log(developer);<br />
+                $http.post("/developer", developer)<br />
+                .success(function (response) {<br />
+                $scope.developers = response;<br />
+                });<br />
+                };<br />
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week7/MongoDB-Find.html">HTML Source Code</a><br />
+            <a href="https://github.com/vikasshriyan/Web-Development/tree/master/Web%20Development/MongoDB">GitHub Repo</a><br />
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=YH5sFprHgl0">Youtube Video</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+    </div>
+</body>
+</html>

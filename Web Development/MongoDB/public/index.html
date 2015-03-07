@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MongoDB</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script src="angular.js"></script>
+    <script src="jquery.js">
+    </script>
+    <script src="Client.js"></script>
+</head>
+    <body ng-app="DeveloperApp">
+        <div class="container" ng-controller="DeveloperController">
+            <h2>Form Using MongoDB</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <input class="form-control" placeholder="First Name" ng-model="developer.firstName" />
+                        </th>
+                        <th>
+                            <input class="form-control" placeholder="Last Name" ng-model="developer.lastName" />
+                        </th>
+                        <th>
+                            <input class="form-control" placeholder="Specialization" ng-model="developer.specialization" />
+                        </th>
+                        <th>
+                            <input class="form-control" placeholder="City" ng-model="developer.city" />
+                        </th>
+                        <th>
+                            <button ng-click="add(developer)" class="btn btn-success pull-right">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                            <button ng-click="update(developer)" class="btn btn-primary pull-right">
+                                <span class="glyphicon glyphicon-ok"></span>
+                            </button>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="developer in developers">
+                        <td>{{developer.firstName}}</td>
+                        <td>{{developer.lastName}}</td>
+                        <td>{{developer.specialization}}</td>
+                        <td>{{developer.city}}</td>
+                        <td>
+                            <button ng-click="remove($index)" class="btn btn-danger pull-right">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                            <button ng-click="select($index)" class="btn btn-warning pull-right">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
