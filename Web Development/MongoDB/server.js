@@ -78,6 +78,12 @@ app.get('/Developer/specialization/:name', function (req, res) {
     });
 });
 
+app.get('/countDevelopers', function (req, res) {
+    DeveloperModel.count(function (err, data) {
+        res.json(data);
+    });
+});
+
 //--------------------------------------------------------------------------//
 
 
