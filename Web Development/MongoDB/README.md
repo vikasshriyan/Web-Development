@@ -1,1 +1,1 @@
-Here you can find files for the expeeriments done in MongoDB
+Here you can find files for the experiments done in MongoDB
