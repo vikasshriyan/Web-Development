@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MongoDB</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>MongoDB - Update Operation</h2><hr/>
+        <h4>The Find & Update method returns the updated developer based on the query and update required.</h4>
+        <h5>Click <a href="http://nodejs-cs5610sp15.rhcloud.com/updateDeveloper">here</a> to go the server.</h5>
+        <img class="img-responsive" src="../../images/MongoDB(9).PNG" />
+        <h3><u>About the Experiment</u></h3>
+        <p>
+            MongoDB is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.
+            Here I have used the "findOneAndUpdate" method of MongoDB to return the the updated developer based on a specific query and the field to be updated.
+        </p><hr />
+        <div>
+            <h3><u>Code Snippet</u></h3>
+            <p>
+               When the user hits the <code>/updateDeveloper</code> URL, the output is the updated developer with new values ina specific field. In this case the <code>specialization</code> field is updated.
+               I use the <code>findOneAndUpdate</code> method in MongoDb to update a document in the collection which is similar to <code>findAndModify</code> method for db.
+            </p><br />
+            <code>
+                <u>Javascript Code</u><br />
+                app.get('/updateDeveloper', function (req, res) {<br/>
+                var query = {lastName:'Shriyan'};<br />
+                DeveloperModel.findOneAndUpdate(query, { specialization: 'HTML' }, function (err, data) {<br />
+                res.json(data);<br />
+                });<br />
+                });
+            </code>
+            <hr />
+        </div>
+        <h3>View Source</h3>
+        <div>
+            <a href="../../fileview/Default.aspx?~/Experiments/Week7/MongoDB-Update.html">HTML Source Code</a><br />
+            <a href="https://github.com/vikasshriyan/Web-Development/tree/master/Web%20Development/MongoDB">GitHub Repo</a><br />
+        </div>
+        <hr />
+        <h3>References</h3>
+        <a href="https://www.youtube.com/watch?v=YH5sFprHgl0">Youtube Video</a><br />
+        <a href="http://getbootstrap.com/examples/starter-template/">Bootstrap CSS code</a>
+    </div>
+</body>
+</html>

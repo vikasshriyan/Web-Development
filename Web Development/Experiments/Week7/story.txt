@@ -3,6 +3,7 @@ MongoDB-Intro.html									   Introduction to MongoDB and Mongoose
 MongoDB-Find.html									   MongoDB- Find Operation
 MongoDB-Count.html									   MongoDB- Count Operation
 MongoDB-Form.html									   MongoDB- Form
+MongoDB-Update.html									   MongoDB- UpdateOperation
 
 
 
