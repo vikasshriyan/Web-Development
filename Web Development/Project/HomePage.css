@@ -1,0 +1,119 @@
+﻿.backgroundimg {
+  background-image:url('http://nycsubway.org.s3.amazonaws.com/images/icon/title_world_us_boston_green.jpg');
+  background-size:cover;
+  height:500px;
+  opacity: 0.7;
+  border-color:white;
+}
+.button{
+    position:relative;
+    top:410px;
+    left:370px;
+    opacity:0.8;
+    width:20%;
+    height:8%;
+}
+
+h1 {
+  position: relative;
+  top: -350px;
+  left: 40px;
+  color:#fff;
+}
+
+.body-content{
+   text-align:center;
+   color:#6699FF;
+   font-size:large;
+}
+
+.body-content .headers{
+    text-align:left;
+    color:#6699FF;
+ 
+}
+
+.body-content-right .headers-right{
+    text-align:right;
+   color:#6699FF;
+
+
+}
+    .strike {
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap; 
+    }
+
+    .strike > span {
+        position: relative;
+        display: inline-block;
+    }
+	
+    .strike > span:before,
+    .strike > span:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 9000px;
+        height: 1px;
+        background:#6699FF;
+    }
+
+    .strike > span:before {
+        right: 100%;
+        margin-right: 15px;
+    }
+
+    .strike > span:after {
+        left: 100%;
+        margin-left: 10px;
+    }
+
+    .para-content{
+        color:#7D7D7D;
+        text-align:left;
+        font-size:large
+    }
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+}
+
+.carousel-control.left, 
+.carousel-control.right {
+    background-image: none !important; 
+filter:none !important;
+color:black
+}
+
+.rotate{
+    width:400px;
+    height:400px;
+    -webkit-transform: rotate(5deg);
+}
+
+.rotate-right{
+    width:400px;
+    height:400px;
+    -webkit-transform: rotate(5deg);
+    float:right;
+}
+
+.nav-foot a{
+    color:white;
+}
+
+.para-foot-right {
+    text-align:right;
+    margin-right:20px
+}
+
+.footer .nav-foot img{    
+    height:20px;
+    width:20px;
+    border:0;   
+}

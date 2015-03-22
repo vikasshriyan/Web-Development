@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MBTA</title>
+    <link rel="stylesheet" href="HomePage.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="cover.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <script type="text/javascript" src="Signup.js"></script>   
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Static navbar -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="HomePage.html">MBTA</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="./">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="../navbar-static-top/">About</a></li>
+                        <li><a href="../navbar-fixed-top/">Details</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
+
+        
+        <div class="backgroundimg">
+            <!--Login-button-->
+            <button class="btn btn-default button " type="submit" data-toggle="modal" data-target="#myModal">Login</button>
+            <!--Login-button modal-->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Login</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-signin">
+                                <h2 class="form-signin-heading">Please sign in</h2>
+                                <label for="inputEmail" class="sr-only">Email address</label>
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus><br/>
+                                <label for="inputPassword" class="sr-only">Password</label>
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="remember-me"> Remember me
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" style="opacity:initial">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Login-button modal ends here-->
+
+            <!--Signup-button-->
+            <button class="btn btn-default button " type="submit" data-toggle="modal" data-target="#myModal2">Sign up</button>
+
+            <!--Signup Modal -->
+            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Register</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" action='' method="POST">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <!-- Username -->
+                                        <label class="control-label" for="username">Username</label>
+                                        <div class="controls">
+                                            <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                                            <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <!-- E-mail -->
+                                        <label class="control-label" for="email">E-mail</label>
+                                        <div class="controls">
+                                            <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                                            <p class="help-block">Please provide your E-mail</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <!-- Password-->
+                                        <label class="control-label" for="password">Password</label>
+                                        <div class="controls">
+                                            <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                                            <p class="help-block">Password should be at least 4 characters</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <!-- Password -->
+                                        <label class="control-label" for="password_confirm">Password (Confirm)</label>
+                                        <div class="controls">
+                                            <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+                                            <p class="help-block">Please confirm password</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <!-- Button -->
+                                        <div class="controls">
+                                            <button class="btn btn-success">Register</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--Signup-button modal ends here-->
+        </div><!--End of background image div-->
+        <br/>
+        <div class="body-content">
+            <div class="strike">
+                <span><i>See why above 300,00 travellers choose MBTA everyday</i></span>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-lg-6">
+                   <h3 class="headers">Experience the best of Boston</h3>
+                    <p class="para-content">
+                       Using MBTA online ticketing service for trains, one can reach anywhere in Boston. This service is your key to discover - places like 
+                       MIT, Harvard University, Charles River. Plus, there’s nothing stopping you from venturing off and exploring some lesser-known but equally lovely towns along the way.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="Images/MIT_Dome_night1_Edit.jpg" alt="" width="460" height="345">
+                            </div>
+
+                            <div class="item">
+                                <img src="Images/Charles_River_2_(Pear_Biter).jpg" alt="Chania" width="460" height="345">
+                            </div>
+
+                            <div class="item">
+                                <img src="Images/harvard_university.jpg" alt="Flower" width="460" height="345">
+                            </div>
+
+                            <div class="item">
+                                <img src="Images/Fenway_from_Legend's_Box.jpg" alt="Flower" width="460" height="345">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/><br/>
+        <div class="row">
+            <div class="col-lg-6">
+                <img class="img-responsive rotate" src="Images/Orange Line Dec 2012-thumb-520x388-89893.jpg" />
+            </div>
+            <div class="col-lg-6 body-content-right">
+                <h3 class="headers-right">The hassle-free way to travel</h3>
+                <p class="para-content">
+                    Get around Boston with the most hassle-free and comfortable travel option: the train. Choosing rail travel means you can enjoy every moment of your journey.
+                </p>
+            </div>
+        </div><br/><br/>
+        <div class="row">
+            <div class="col-lg-6 body-content">
+                <h3 class="headers">Enjoy the scenery around you</h3>
+                <p class="para-content">
+                    Enjoy the scenery of Boston as you travel from one place to another.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <img class="rotate-right img-responsive" src="Images/Boston_1.jpg" />
+            </div>
+        </div>
+           <footer class="footer">
+               <div class="container">
+                   <nav class="nav-foot">
+                       <a href="#" >Home</a> |
+                       <a href="#">About</a> |
+                       <a href="#">Details</a> <br/>
+                       <a href="https://www.facebook.com">
+                           <img style="width:10px;" src="Images/F_icon_reversed.png" />
+                       </a>
+                       <a href="https://www.linkedin.com/">
+                           <img src="Images/linkedin.png" />
+                       </a>
+                   </nav><br/>
+                   <p>
+                       Copyright &copy; Vikas Shriyan. 2015. All rights reserved.<br />
+                       Boston, Massachusetts
+                   </p>
+               </div>
+        </footer> <!-- /container -->
+
+    </div>
+</body>
+</html>
