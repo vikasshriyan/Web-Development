@@ -59,4 +59,18 @@
             }
         }
     });
-});     
+});
+
+
+
+$(function () {
+    $(".dropdown-menu li a").click(function () {
+        $(".bt").text($(this).text());
+        $(".bt").val($(this).text());
+        var passengers = $("#dropdownMenu1").val();
+        console.log(passengers);
+        $("#ticketPrice").html(passengers + " x 2.50" + " = " + passengers * 2.50 + "$");
+    });
+});
+
+
