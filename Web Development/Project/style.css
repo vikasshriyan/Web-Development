@@ -60,3 +60,13 @@
 #alertBox{
     margin-top:20px
 }
+
+#map-canvas{
+    height:100%;
+    margin: 0px;
+    padding: 0px
+}
+
+#map-canvas1{
+    height:250px;
+}

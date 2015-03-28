@@ -1,0 +1,28 @@
+﻿ .main{
+    padding-top:90px;
+}
+ .alert-div{
+padding-top:30px;
+ }
+
+ div #left-div{
+    border-bottom: 2px solid #dddddd; 
+ }
+
+ div #alert-div-main, #map-div {
+     border-left:1px solid #dddddd;
+     margin-left:3px;
+
+ }
+ #alert-div,#map-div-1{
+margin-left:4px;
+ }
+
+
+ #image-div{
+     padding-top:5px;
+ }
+
+ #right-div{
+     border-left:1px solid #dddddd;
+ }
