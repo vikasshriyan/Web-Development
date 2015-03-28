@@ -1,0 +1,138 @@
+﻿#ticket-row{
+    padding-top:20px
+}
+
+#ticket-col{
+    border:2px solid black
+}
+
+img{
+    opacity:0.1
+}
+
+.image{
+     position: relative;
+}
+
+#ticket-details{
+    position:absolute;
+    font: bold 24px/45px Helvetica, Sans-Serif;
+    top: -15px; 
+   left: 150px; 
+   width: 100%; 
+}
+
+#name{
+     position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 60px; 
+   left: 10px; 
+   width: 100%;
+}
+
+#name-p{
+    position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 70px; 
+   left: 65px; 
+   width: 100%;
+}
+
+#doj{
+    position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 110px; 
+   left: 10px; 
+   width: 100%;
+}
+
+#doj-p{
+    position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 121px; 
+   left: 140px; 
+   width: 100%;
+}
+
+#source{
+    position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 200px; 
+   left: 10px; 
+   width: 100%;
+}
+
+
+#dest{
+position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 200px; 
+   left: 300px; 
+   width: 100%;
+}
+
+#source-p{
+    position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 250px; 
+   left: 10px; 
+   width: 100%;
+}
+
+#dest-p{
+    position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 250px; 
+   left: 300px; 
+   width: 100%;
+}
+
+#nop{
+    position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 300px; 
+   left: 10px; 
+   width: 100%;
+}
+
+#nop-p{
+    position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 310px; 
+   left: 160px; 
+   width: 100%;
+}
+
+#ticket-price{
+    position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 400px; 
+   left: 275px; 
+   width: 100%;
+}
+
+#ticket-price-p{
+    position:absolute;
+    font: bold 16px/45px Helvetica, Sans-Serif;
+    top: 410px; 
+   left: 420px; 
+   width: 100%;
+}
+
+#print-group{
+    position:absolute;
+    top:500px;
+    left:380px
+}
+
+@media print{
+    #ticket-row{
+        width:55%;
+    }
+    .noprint{
+        display:none;
+    }
+    #no-print{
+        display:none;
+    }
+}
