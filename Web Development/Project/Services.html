@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="cover.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="Services.css" />
+    <link rel="stylesheet" href="T-Timing.css" />
+    <script src="T-Timing.js"></script>
     <script src="Queryapi.js"></script>
-    <script src="Alertapi.js"></script>
+    <script src="Alertapi.js"></script>  
     <script src="Mapsapi.js"></script>
-    <script src="Services.js"></script>
+    <script src="Services.js"></script>   
     <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
     <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css" />
@@ -43,8 +45,8 @@
           <div class="col-lg-2" id="left-div">
               <ul class="nav nav-pills nav-stacked">
                   <li role="presentation"><a href="#" id="alerts">Alerts</a></li>
-                  <li role="presentation"><a href="#" id="timings">Get Timings</a></li>
-                  <li role="presentation"><a href="#" id="directions">Get Directions</a></li>
+                  <li role="presentation"><a href="#" id="timings">T-Timings</a></li>
+                  <li role="presentation"><a href="#" id="directions">Directions</a></li>
               </ul>
           </div>
             <div class="col-lg-8">
@@ -111,7 +113,36 @@
                            </div>
                        </div>
                    </div>  
-                <!--End Of Maps Div-->    
+                <!--End Of Maps Div--> 
+                <div class="row" id="timings-div"> <!--Start of Timings div-->
+                    <img class="img-responsive" id="timing-img" src="Images/Timing.jpg" />
+                    <div class="row" id="timings-div1">
+                        <div class="col-lg-8">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="timing-stop" placeholder="Enter the T-stop name">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" id="getTiming">
+                                        <span class="glyphicon glyphicon-time">
+                                        </span> Get Timings
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="timings-div2">
+                        <div class="col-lg-8">
+                            <div class="alert alert-success" id="timing-div">
+                                <p id="timingMessageInbound">
+
+                                </p>
+                                <p id="timingMessageOutbound">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <!--End Of Timings Div--> 
             </div>  
             <div class="col-lg-2" id="right-div">
                 <h3><u>Announcements</u></h3>

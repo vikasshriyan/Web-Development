@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MBTA</title>
+    <link rel="stylesheet" href="JQuery/jquery-ui.css" />
+    <script src="JQuery/jquery-1.11.2.js"></script>
+    <script src="JQuery/jquery-ui.js"></script>
+    <script src="Payment.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Payment.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css" />
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="HomePage.html">Home</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="Services.html">Services</a></li>
+                    </ul>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+        <div class="row" id="payment-div">
+            <div class="col-lg-1">
+
+            </div>
+            <div class="col-lg-9" id="payment-div1">
+                <h4>Enter Payment Information</h4>
+                <h5><i>Accepted ATM / Debit and Credit cards</i></h5>
+                <img class="img-responsive" src="Images/Cards.png" />
+                <div class="row" id="payment-div2">
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" id="name_on_card" placeholder="Name on card" />
+                        <p id="payment_message"></p><br />
+                        <select style="width:47%;float:right" class="form-control" id="year">
+                            <option>Expiration year</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                        </select>
+                        <select style="width:47%;" class="form-control" id="month">
+                            <option>Expiration month</option>
+                            <option>01 - January</option>
+                            <option>02 - February</option>
+                            <option>03 - March</option>
+                            <option>04 - April</option>
+                            <option>05 - May</option>
+                            <option>06 - June</option>
+                            <option>07 - July</option>
+                            <option>08 - August</option>
+                            <option>09 - September</option>
+                            <option>10 - October</option>
+                            <option>11 - November</option>
+                            <option>12 - December</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" id="card_number" placeholder="Card number" />
+                        <p id="payment_message1"></p><br />
+                        <input type="text" style="width:47%;display:inline"class="form-control" id="zip_code" placeholder="ZIP code"/>
+                        <p id="payment_message2" ></p>
+                        <input type="text" style="width:47%;display:inline" id="cvv" class="form-control" placeholder="CVV" />
+                        <p id="payment_message3" ></p>
+                    </div>
+                </div><br/>  
+                <button class="btn">Cancel</button>
+                <button class="btn btn-success" id="submit">Submit</button><br />
+                <h2> </h2>              
+            </div>           
+            <div class="col-lg-1">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

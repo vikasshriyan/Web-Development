@@ -1,9 +1,48 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>MBTA</title>
+    <link rel="stylesheet" href="JQuery/jquery-ui.css" />
+    <script src="JQuery/jquery-1.11.2.js"></script>
+    <script src="JQuery/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="T-Timing.css" />
+    <script src="T-Timing.js"></script>
+    <script src="Alertapi.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css" />
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.js"></script>
 </head>
 <body>
+    <div class="container">
+        <h2>Get Timings for the next Train for a particular Stop</h2><hr/>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="stop" placeholder="Enter the T-stop name">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" id="getTiming">
+                            <span class="glyphicon glyphicon-time">
+                            </span> Get Timings
+                        </button>
+                    </span>
+                </div>
+              </div>
+            </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="alert alert-success" id="timing-div">
+                    <p id="timingMessageInbound">
 
+                    </p>     
+                    <p id="timingMessageOutbound">
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
