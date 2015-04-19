@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MBTA</title>
+    <link rel="stylesheet" href="JQuery/jquery-ui.css" />
+    <script src="JQuery/jquery-1.11.2.js"></script>
+    <script src="JQuery/jquery-ui.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="Queryapi.js"></script>
+    <script src="Mapsapi.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css" />
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="ui-widget row">
+            <div class="col-xs-4">
+                <span><label for="stops1">From</label></span>
+                <input class="form-control" id="stops1" type="text"  placeholder="Source t-stop">
+            </div>
+            <div class="col-xs-4">
+                <span><label for="stops1">To</label></span>
+                <input class="form-control" id="stops2" type="text"  placeholder="Destination T-stop">
+                <h4 id="source_destinations_equal"></h4><br/>
+            </div>
+            <div class="col-xs-4">
+                <span><label>&nbsp;</label></span>
+                <button class="form-control btn btn-success" id="getDirections" onclick="calcRoute(); initialize();">Get Directions</button>
+            </div>
+        </div>
+        <div class="row" id="map-canvas1">
+            <div class="col-lg-2">
+
+            </div>
+            <div class="col-lg-8" id="map-canvas">
+
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>MBTA</title>
+    <link rel="stylesheet" href="JQuery/jquery-ui.css" />
+    <script src="JQuery/jquery-1.11.2.js"></script>
+    <script src="JQuery/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="TicketPage.css" />
+    <script src="TicketPage.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css" />
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+</head>
+<body>
+  <div class="container">
+      <div class="row" id="ticket-row">
+          <div class="col-lg-5" id="ticket-col">
+              <div class="image">
+                  <img class="img-responsive" src="Images/MBTA.svg.png" />
+                  <h4 id="ticket-details">Ticket Details</h4>
+                  <h5 id="name">Name:</h5>
+                  <p id="name-p"></p>
+                  <h5 id="doj">Date of Journey:</h5>
+                  <p id="doj-p"></p>
+                  <h5 id="source">Source:</h5><h5 id="dest">Destination:</h5>
+                  <p id="source-p"></p><p id="dest-p"></p>
+                  <h5 id="nop">No of Passengers:</h5>
+                  <p id="nop-p">2</p>
+                  <h5 id="ticket-price">Total Ticket Price:</h5>
+                  <p id="ticket-price-p">$5.00</p>
+              </div>
+          </div>        
+      </div> 
+      <div class="noprint" id="print-group">
+          <button class="btn btn-default" id="back_button">Go Back</button>
+          <button class="btn btn-success" id="print-button" onclick="window.print();">&nbsp;&nbsp; Print &nbsp;&nbsp;</button>
+      </div>
+  </div>
+</body>
+</html>

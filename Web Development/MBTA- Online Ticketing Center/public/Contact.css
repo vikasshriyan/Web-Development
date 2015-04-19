@@ -1,0 +1,9 @@
+﻿#map {
+    width: 100%;
+    height: 500px;
+    display: block;
+    margin-top:100px;
+    background-image:url(Images/Contact.PNG);
+    border:1px solid black;
+}
+

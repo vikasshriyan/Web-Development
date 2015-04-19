@@ -1,0 +1,204 @@
+﻿
+
+@import url(http://fonts.googleapis.com/css?family=Lato); 
+
+
+body {
+   font-family: 'Lato', sans-serif;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.pad-bottom {
+    padding-bottom: 70px;
+}
+
+.text-right {
+    text-align:right;
+}
+
+.head-line {
+ margin-bottom: 20px;
+line-height: 30px;
+font-size: 25px;
+color: #737373;
+}
+
+
+/*================================
+  HEADER STYLES
+==================================*/
+
+header {
+    background-color:#00B200;
+    color:#fff;
+    padding-top: 20px;
+    padding-bottom: 12px;
+}
+
+    header .logo-wrapper img {
+      max-height: 35px;
+    }
+    header .menu-links {
+        padding-top:5px;
+    }
+ header .menu-links a {
+        font-size:30px;
+        color:#fff;
+        font-weight:900;
+        margin:15px;
+        
+    }
+    header .menu-links a:hover, header .menu-links a:focus {
+         text-decoration:none;
+          -webkit-transform: scale(1.5);
+       -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+         -o-transform: scale(1.5);
+            transform: scale(1.5);
+             -webkit-transition: all 0.2s ease;
+       -moz-transition: all 0.2s ease;
+         -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+    }
+
+   
+
+/*================================
+  HOME SECTION STYLES
+==================================*/
+
+#home {
+    background: url(../img/home.jpg) no-repeat center center; 
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;    
+}
+
+    #home .overlay {
+        padding-top: 120px;
+        background-color: rgba(36, 36, 36, 0.8);
+        min-height: 500px;
+        padding-bottom: 40px;
+    }
+     #home h1 {
+      margin-bottom: 20px;
+line-height: 40px;
+font-size: 35px;
+color: #00B200;
+text-transform:uppercase;
+    }
+    #home h4 {
+      margin-bottom: 30px;
+line-height: 40px;
+font-size: 20px;
+color: #D0D0D0;
+    }
+ 
+ /*================================
+    ABOUT STYLES
+==================================*/
+
+ .icon-wrapper {
+    padding-bottom:20px;
+    padding-top:20px;
+    font-size:50px;
+}
+ 
+.img-side {
+    max-height:420px;
+}
+ /*================================
+    CLIENTS SECTION STYLES
+==================================*/
+
+   #clients {
+    background: url(../img/clients.jpg) no-repeat center center; 
+    padding: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -moz-background-size: cover;    
+}
+
+    #clients .overlay {
+        background-color: rgba(36, 36, 36, 0.8);
+        min-height: 550px;
+
+    }
+
+.client-cover {
+    background-color:#00B200;
+    padding:100px 50px 100px 50px;
+    color:white;
+   
+}
+    /* TESTIMONIAL */
+       .testimonial-section {
+    width: 90%;
+    height: auto;
+    padding: 35px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+    border: 5px solid rgba(0, 79, 255, 0.24);
+font-size: 20px;
+color: rgba(234, 234, 234, 1);
+line-height: 35px;
+}
+.testimonial-section:after {
+    top: 100%;
+    left: 10%;
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+    border-top-color:rgba(0, 79, 255, 0.24);
+    border-width: 15px;
+    margin-left: -15px;
+}
+
+.testimonial-section-name {
+    margin-top: 30px;
+    margin-left: 30px;
+    text-align:left;
+    color:white;
+    font-size:16px;
+}
+    .testimonial-section-name img {
+        width:100px;
+        border: 5px solid rgba(234, 234, 234, 1);
+    }
+.carousel-indicators-set {
+    position:static;
+    margin-left:0px;
+    width:100%;
+    color:rgba(234, 234, 234, 1);
+}
+/*================================
+    FEATURES STYLES
+==================================*/
+#features {
+    background-color:rgba(234, 234, 234, 0.90);
+}
+
+/*================================
+    FOOTER SECTION STYLES
+ ============================  */
+footer {
+    padding:15px;
+    background-color:#00B200;
+    color:#fff;
+    }
+    footer a,footer a:hover,footer a:focus {
+        color:#fff;
+        text-decoration:none;
+        margin-right:10px;
+        margin-left:10px;
+    }
+

@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="shortcut icon" href="Images/MBTA.png" type="image/png">
+    <title>MBTA</title>
+    <link rel="stylesheet" href="JQuery/jquery-ui.css" />
+    <script src="JQuery/jquery-1.11.2.js"></script>
+    <script src="JQuery/jquery-ui.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <link rel="stylesheet" href="HomePage.css" />
+    <link rel="stylesheet" href="cover.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Services.css" />
+    <link rel="stylesheet" href="T-Timing.css" />
+    <script src="T-Timing.js"></script>
+    <script src="Queryapi.js"></script>
+    <script src="Alertapi.js"></script>  
+    <script src="Mapsapi.js"></script>
+    <script src="Services.js"></script>
+    <script src="Signup.js"></script>   
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css" />
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            var a = window.location.search.substring(5);
+            console.log(a);
+            if (a == 'show') {
+                $("#profile").show();
+                $("#home_id").hide();
+                $("#contact_id").hide();
+                $("#bookmarkTiming").show();
+            }
+            else {
+                var user = localStorage.getItem('currentUser');
+                user = JSON.parse(user);
+                console.log(user);
+                $("#bookmarkTiming").hide();
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.html" id="home_id">Home</a></li>
+                        <li><a href="Profile.html" id="profile">Profile</a></li>
+                        <li><a href="Services.html" id="services">Services</a></li>
+                        <li><a href="Contact.html" id="contact_id">About us</a></li>
+                    </ul>                  
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+        <div class="row main">
+          <div class="col-lg-2" id="left-div">
+              <ul class="nav nav-pills nav-stacked">
+                  <li role="presentation"><a href="#" id="alerts">Alerts</a></li>
+                  <li role="presentation"><a href="#" id="timings">T-Timings</a></li>
+                  <li role="presentation"><a href="#" id="directions">Directions</a></li>
+              </ul>
+          </div>
+            <div class="col-lg-8">
+                <div class="row" id="alert-div-main">  <!--Start Of Alerts Div-->
+                    <div class="col-lg-8" id="image-div">
+                        <img class="img-responsive" src="Images/Alert.jpg" />
+                    </div>
+                    <div class="row" id="alert-div">
+                        <div class="col-lg-8">
+                            <h2> Get Alerts for a T-stop using the search bar below</h2>
+                            <div class="input-group alert-div">
+                                <input type="text" class="form-control" id="stop" placeholder="Enter the T-stop name">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" id="getAlert">
+                                        <span class="glyphicon glyphicon-alert">
+                                        </span> Get Alerts!
+                                    </button>
+                                </span>
+                            </div>
+                            <p id="alertMessage">
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div id="alertBox">
+                                <div class="alert alert-warning" id="alertbox">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <p class="displayAlert">
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                 <!--End Of Alerts Div-->
+                   <div class="row" id="map-div"> <!--Start Of Maps Div-->
+                       <div class="ui-widget row" id="map-div-1">
+                           <div class="col-xs-4">
+                               <span><label for="stops1">From</label></span>
+                               <input class="form-control" id="stops1" type="text" placeholder="Source t-stop">
+                           </div>
+                           <div class="col-xs-4">
+                               <span><label for="stops1">To</label></span>
+                               <input class="form-control" id="stops2" type="text" placeholder="Destination T-stop">
+                               <h4 id="source_destinations_equal"></h4><br/>
+                           </div>
+                           <div class="col-xs-3" id="map-div-2">
+                               <span><label>&nbsp;</label></span>
+                               <button class="form-control btn btn-success" id="getDirections" onclick="calcRoute(); initialize();">Directions</button>
+                           </div>
+                       </div>
+                       <div class="row" id="map-canvas1">
+                           <div class="col-lg-2">
+
+                           </div>
+                           <div class="col-lg-8" id="map-canvas">
+
+                           </div>
+                           <div class="col-lg-2">
+
+                           </div>
+                       </div>
+                   </div>  
+                <!--End Of Maps Div--> 
+                <div class="row" id="timings-div"> <!--Start of Timings div-->
+                    <img class="img-responsive" id="timing-img" src="Images/Timing.jpg" />
+                    <div class="row" id="timings-div1">
+                        <div class="col-lg-8">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="timing-stop" placeholder="Enter the T-stop name">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" id="getTiming">
+                                        <span class="glyphicon glyphicon-time">
+                                        </span> Get Timings
+                                    </button>&nbsp;
+                                    <button style="margin-left:10px" class="btn btn-warning" id="bookmarkTiming">
+                                        <span class="glyphicon glyphicon-bookmark"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="timings-div2">
+                        <div class="col-lg-8">
+                            <div class="alert alert-success" id="timing-div">
+                                <p id="timingMessageInbound">
+
+                                </p>
+                                <p id="timingMessageOutbound">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <!--End Of Timings Div--> 
+            </div>  
+            <div class="col-lg-2 alert-info" id="right-div">
+                <h3><u>Announcements</u></h3>
+                <p>
+                    <strong><u>For Timings</u></strong><br/>
+                    Users can bookmark their favorite stops if they are <b>Logged In</b> and view their favorite bookmarks in their profile.<br />
+                   <strong><u>For Alerts</u><br/></strong>
+                    Alerts are displayed for some T-stops only, those T-stops who do not have any alerts are not displayed.
+                    For e.g, Typing in Porter Square will give you alerts but when you type Northeastern University, you won't get any alerts.<br/>
+                    <strong><u>For Directions</u><br /></strong>
+                    The map will display the route based on the Source and Destination from the same T Line. For e.g, Northeastern University and Symphony are on Green Line E.
+                    Whereas, Lechmere and Kenmore lie on the B Green Line.
+
+                </p>
+            </div>   
+        </div> 
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    Copyright &copy; Vikas Shriyan. 2015. All rights reserved.<br />
+                    Boston, Massachusetts
+                </p>
+            </div>
+        </footer>    
+  </div>
+  
+</body>
+</html>

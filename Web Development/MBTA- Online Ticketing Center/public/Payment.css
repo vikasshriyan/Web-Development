@@ -1,0 +1,15 @@
+﻿#payment-div{
+margin-top:150px;
+}
+#payment-div1{
+    border:1px solid #808080;
+    border-radius:4px;
+
+}
+#payment-div2{
+    margin-top:10px;
+}
+#payment_message,#payment_message1,#payment_message2,#payment_message3{
+    font-size:12px;
+    color:red
+}

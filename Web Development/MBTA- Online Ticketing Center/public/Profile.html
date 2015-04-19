@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="shortcut icon" href="Images/MBTA.png" type="image/png">
+    <title>MBTA</title>
+    <link rel="stylesheet" href="JQuery/jquery-ui.css" />
+    <script src="JQuery/jquery-1.11.2.js"></script>
+    <script src="JQuery/jquery-ui.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="T-Timing.css" />
+    <link href="assets/css/ionicons.css" rel="stylesheet" />
+    <script src="Signup.js"></script>
+    
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css" />
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   <img style="margin-top:10px;" class="img-responsive" src="Images/MBTA.png" />
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="Profile.html">Profile<span class="sr-only">(current)</span></a></li>                        
+                        <li><a href="Services.html" id="services">Services</a></li>
+                        <li><a href="#" id="logoutUser">Logout</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Welcome</h1><h1 id="first_last"></h1>
+                <p>You can use this page to book tickets using the button below<br/>
+                  You can also view your recent purchased ticket or recent bookmarked T-stops below.
+                </p>
+                <p><a class="btn btn-primary btn-lg" href="TicketModule.html" role="button">Book Tickets &raquo;</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" jumbotron col-lg-8">
+                    <h4>Recent Tickets Purchased</h4>
+                    <button style="margin-left:500px;margin-top:-60px"id="ticketDetailButton" class="btn btn-primary ion-android-download">   View</button>
+                     <button style="margin-left:600px;margin-top:-100px"id="ticketDetailButtonClear" class="btn btn-danger ion-android-remove-circle">  Clear</button>
+                <table id="ticketTable" class="table table-bordered" >
+                    <thead id="thead">
+
+                    </thead>              
+                    <tbody id="tbody">
+
+                    </tbody>                   
+                </table>
+            </div>          
+        </div>
+        <div class="row">
+            <div class="jumbotron col-lg-8">
+                <h4>Recent Bookmarks</h4>
+                <button style="margin-left:500px;margin-top:-60px" class="btn btn-primary ion-android-download" id="downloadBookmarks"> View</button>
+                <button style="margin-left:600px;margin-top:-100px" class="btn btn-danger ion-android-remove-circle" id="clearBookmarks"> Clear</button>
+                <table id="bookmarktable" class="table table-bordered">
+
+                </table>
+            </div>
+            </div>
+        </div>
+
+    <script>
+    var user = localStorage.getItem('currentUser');
+    user = JSON.parse(user);
+    $("#first_last").html(user.firstName + ' ' + user.lastName);
+    </script>
+</body>
+</html>

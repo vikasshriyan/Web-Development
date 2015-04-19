@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>MBTA</title>
+    <!-- ION ICONS STYLES -->
+    <link href="assets/css/ionicons.css" rel="stylesheet" />
+     <!-- FONT AWESOME ICONS STYLES -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <script src="assets/js/ie-10-view-port.js"></script>
+    <link rel="stylesheet" href="HomePage.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+
+    <script type="text/javascript" src="Signup.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+      
+</head>
+<body>
+    <!-- HEADER SECTION START-->
+   <header id="header">
+        <div class="container" >
+                <div class="row"  >
+                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 logo-wrapper">
+                         <a class="navbar-brand" href="index.html"><img src="Images/MBTA.svg.png" /></a>
+                     </div>
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right" >
+                          <div class="menu-links scroll-me">
+                              <a href="index.html"> <i class="ion-ios-home-outline"></i> </a>
+                              <a style="font-size:15px" href="Services.html">Services</a>
+                              <a style="font-size:15px" data-toggle="modal" data-target="#myModal">Login</a>
+                              <a style="font-size:15px" data-toggle="modal" data-target="#myModal2">Sign up</a>                             
+                          <a href="Contact.html"> <i class="ion-ios-chatboxes-outline"></i> </a>                      
+                          </div>                    
+                </div>                     
+                </div>
+              
+                
+            </div>
+
+   </header>
+    <!-- HEADER SECTION END-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-signin">
+                        <h2 class="form-signin-heading">Please sign in</h2>
+                        <label for="inputUsername" class="sr-only">Username</label>
+                        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus><br />
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="remember-me"> Remember me
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="loginUser" style="opacity:initial">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Login-button modal ends here-->
+    <!--Signup Modal -->
+    <div class="modal fade in" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Register</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" action='' method="POST">
+                        <fieldset>
+                            <p id="signupError"></p>
+                            <div class="control-group">
+                                <!-- First Name -->
+                                <label class="control-label" for="firstName">First Name</label>
+                                <div class="controls">
+                                    <input type="text" id="firstName" name="firstName" placeholder="First Name" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <!-- Last Name -->
+                                <label class="control-label" for="lastName">Last Name</label>
+                                <div class="controls">
+                                    <input type="text" id="lastName" name="lasttName" placeholder="Last Name" class="input-xlarge">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <!-- Username -->
+                                <label class="control-label" for="username">Username</label>
+                                <div class="controls">
+                                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                                    <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <!-- E-mail -->
+                                <label class="control-label" for="email">E-mail</label>
+                                <div class="controls">
+                                    <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                                    <p class="help-block">Please provide your E-mail</p>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <!-- Password-->
+                                <label class="control-label" for="password">Password</label>
+                                <div class="controls">
+                                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                                    <p class="help-block">Password should be at least 4 characters</p>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <!-- Password -->
+                                <label class="control-label" for="password_confirm">Password (Confirm)</label>
+                                <div class="controls">
+                                    <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+                                    <p class="help-block">Please confirm password</p>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <!-- Button -->
+                                <div class="controls">
+                                    <button type="button" class="btn btn-success" id="registerUser">Register</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> <!--Signup-button modal ends here-->
+    <!--HOME SECTION START  -->
+    <div id="home">
+        <div class="overlay">
+            <div class="container">
+                <div class="row scroll-me" >
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                          <h2 style="color:#00B200">MBTA Online Ticketing Center</h2>
+                    <h4>
+                        Welcome to the first ever MBTA Online Ticketing Center. <br/>
+                        For the common man, made by a common man.
+
+                    </h4>
+                </div>
+                </div>            
+            </div>
+        </div>
+
+    </div>
+    <!--HOME SECTION END  -->
+     <!-- ABOUT SECTION START-->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <h2 class="head-line">What Worth Here & Why  ?</h2>
+                    <p >
+                       You might want to know the alerts for a stop, maybe the next train timing or the directions from one stop to another.
+                       This is just a click away. You can use these features using the Services tab above. Go Explore!
+                    </p>
+                    <div class="row text-center">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row pad-bottom">
+                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                             <div class="icon-wrapper">
+                                 <i class="ion-alert"></i>
+                             </div>                   
+                    <h4>Alerts </h4>
+                     You can get alerts for a particular stop using this feature.
+
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="icon-wrapper">
+                    <i class="ion-ios-time"></i>
+                        </div>
+                    <h4>Train timings</h4>
+                     You can get timings for the next train for a particular T-stop.
+
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="icon-wrapper">
+                    <i class="ion-android-map"></i>
+                        </div>
+                    <h4>Rail Directions</h4>
+                    You can also get rail directions from one place to another.
+                    
+                </div>
+                        </div>
+                        
+            </div>
+                
+        </div>
+                    
+                </div>
+                
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center" >
+                    <img src="assets/img/phone.png" class="img-side" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ABOUT SECTION END-->
+     <!-- CLIENTS SECTION START-->
+    <section id="clients">
+        <div class="overlay">       
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <h4 style="color:#00B200;margin-top:250px;"><i>See why above 300,00 travellers choose MBTA everyday</i></h4>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12  client-cover" >
+                     <div id="carousel-example" class="carousel slide" data-ride="carousel">
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="testimonial-section">
+                                Experience the best of Boston.<br />
+                                Using MBTA online ticketing service for trains, one can reach anywhere in Boston. This service is your key to discover - places like
+                                MIT, Harvard University, Charles River. Plus, there’s nothing stopping you from venturing off and exploring some lesser-known but equally lovely towns along the way.
+                        </div>
+                        <div class="testimonial-section-name">
+                            <img src="assets/img/client1.jpg" alt="" class="img-circle" />
+                            -  Justine Goliyad
+                        </div>
+                            
+                        </div>
+                        <div class="item">
+                           <div class="testimonial-section">
+                               The hassle-free way to travel<br/>
+                               Get around Boston with the most hassle-free and comfortable travel option: the train. Choosing rail travel means you can enjoy every moment of your journey.
+                        </div>
+                        <div class="testimonial-section-name">
+                            <img src="assets/img/client2.jpg" alt="" class="img-circle" />
+                            -  Justine Goliyad
+                        </div>
+                            
+                        </div>
+                        <div class="item">
+                          <div class="testimonial-section">
+                              Enjoy the scenery around you.<br/> 
+                              Enjoy the scenery of Boston as you travel from one place to another.
+                        </div>
+                        <div class="testimonial-section-name">
+                            <img src="assets/img/client3.jpg" alt="" class="img-circle" />
+                            -  Justine Goliyad
+                        </div>
+                            
+                        </div>
+                         <!--INDICATORS-->
+                    <ol class="carousel-indicators carousel-indicators-set">
+                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example" data-slide-to="1"></li>
+                        <li data-target="#carousel-example" data-slide-to="2"></li>
+                    </ol>
+
+                    </div>
+                   
+                </div>
+                </div>
+            </div>
+           
+        </div>
+             </div>
+    </section>
+     <!-- CLIENTS SECTION END-->
+   <br/>
+    <!-- FOOTER SECTION START-->
+    <footer>
+        <div class="container">
+            <div class="row text-center">
+                   <div class="col-lg-12 col-md-12 col-sm-12">
+                    <nav class="nav-foot">
+                        <a href="#">Home</a> |
+                        <a href="#">About</a> |
+                        <a href="#">Details</a> <br />
+                    </nav>
+                    <p>
+                       Copyright &copy; Vikas Shriyan. All rights reserved.<br />
+                       Boston, Massachusetts
+                    </p>
+                  </div>
+           </div>
+       </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <script src="assets/js/jquery.easing.min.js"></script>
+</body>
+</html>

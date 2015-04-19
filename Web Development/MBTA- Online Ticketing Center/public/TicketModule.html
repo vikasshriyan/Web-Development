@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="shortcut icon" href="Images/MBTA.png" type="image/png">
+    <title>MBTA</title>
+    <link rel="stylesheet" href="JQuery/jquery-ui.css" />
+    <script src="JQuery/jquery-1.11.2.js"></script>
+    <script src="JQuery/jquery-ui.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="TicketModule.js"></script>
+    <link rel="stylesheet" href="T-Timing.css" />
+    <link rel="stylesheet" href="TicketModule.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.css" />
+    <script src="bootstrap-3.3.2-dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img style="margin-top:10px;" class="img-responsive" src="Images/MBTA.png" />
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="Profile.html">Profile<span class="sr-only">(current)</span></a></li>
+                        <li><a href="Services.html">Services</a></li>
+                        <li><a href="Contact.html">About us</a></li>
+                        <li><a href="#" id="logoutUser">Logout</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
+
+    <div class="online-ticket">
+        <div class="online-ticket1">
+            <h3>Select the source and destination</h3><br />
+
+            <div class="ui-widget row">
+                <div class="col-xs-4">
+                    <span><label for="stops1">From</label></span>
+                    <input class="form-control" id="stops1" type="text" placeholder="Source T-stop">
+                    <p id="paymentError"></p>
+                </div>
+                <div class="col-xs-4">
+                    <span><label for="stops2">To</label></span>
+                    <input class="form-control" id="stops2" type="text" placeholder="Destination T-stop">
+                    <p id="paymentError1"></p>
+                </div>
+            </div><!--End of from and to row-->
+            <div class="row">
+                <!--Start of date, passengers and ticket price row-->
+                <div class="col-xs-2">
+                    <span><label for="date">Date</label></span>
+                    <input class="form-control" type="date" id="date" />
+                </div>
+                <div class="col-xs-2">
+                    <span><label id="passengers">No. of Passengers</label></span>
+                    <div class="dropdown">
+                        <button class="btn btn-default bt dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            Select
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">3</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">4</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">5</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">6</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">7</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">8</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">9</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">10</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <span><label for="ticketprice">Ticket Price</label></span>
+                    <h4 id="ticketPrice"></h4>
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-xs-4">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+                        <span class="glyphicon glyphicon-map-marker">
+                        </span> Station Finder
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Map</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <img class="img-responsive" src="Images/Map.jpg" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                  
+                       <a class="btn btn-success" id="paymentButton">Proceed to payment</a>                   
+                    <h2>
+                        &nbsp;
+                    </h2>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+    var user = localStorage.getItem('currentUser');
+    user = JSON.parse(user);
+    console.log(user);
+    </script>
+</body>
+</html>
