@@ -1,3 +1,2 @@
-The OpenShift `nodejs` cartridge documentation can be found at:
-
-http://openshift.github.io/documentation/oo_cartridge_guide.html#nodejs
+MBTA- Online Ticketing Center. 
+This project is made as a part of my Web Development Course. I've used HTML5.0, CSS, NodeJS, PassportJS, JQuey, Javascript and MongoDB technologies for this project.
